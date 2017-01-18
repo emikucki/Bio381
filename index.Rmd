@@ -1,0 +1,15 @@
+---
+title: "Emily’s BIO 381 Homepage"
+author: "Emily Mikucki"
+date: "January 18, 2017"
+output: html_document
+---
+
+# Emily Mikucki
+
+## Computational Biology
+
+Lists:
+
+* [Assignment 1](Test.html)      
+* Assignment 2      
