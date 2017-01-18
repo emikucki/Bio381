@@ -1,0 +1,20 @@
+---
+title: "Lab_Notes_01182017"
+author: "Emily Mikucki"
+date: "January 18, 2017"
+output: html_document
+---
+
+Computational Biology
+Lab 1 
+01/18/17
+
+Lauren's class website:
+lvash.github.io/Bio381
+
+Due by email to Nick:
+1. Fun fact
+2. username.github.io/Bio381
+3. github.com/username
+
+"RMarkdown cheatsheet" --> google

@@ -6,10 +6,25 @@ output: html_document
 ---
 
 # Emily Mikucki
+###About Me
+I am a second-year PhD student in Biology studying the physiological consequences of increased warming in diapausing *Pieris rapae* butterflies. I am co-advised by Dr. Brent Lockwood and Dr. Alison Brody. 
 
-## Computational Biology
+[UVM Graduate Student Page](http://www.uvm.edu/~biology/?Page=students/mikucki.php&SM=facultysubmenu.html)
 
-Lists:
+![Collecting butterflies at Shelburne Farms in Shelburne, VT](butterfly.jpg)
+
+## Computational Biology - Spring 2017
+
+##Assignments:
 
 * [Assignment 1](Test.html)      
-* Assignment 2      
+* Assignment 2 
+
+##Notes:
+
+####Lecture
+* [January 17, 2017](Lecture_Notes_01172017.html)   
+
+#### Lab
+* [January 18, 2017](Lab_Notes_01182017.html)
+
