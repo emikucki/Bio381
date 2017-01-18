@@ -18,3 +18,49 @@ Due by email to Nick:
 3. github.com/username
 
 "RMarkdown cheatsheet" --> google
+
+_________________________________________
+
+###**Creating a repository and synching it to html-interface**
+
+**Create an RStudio Project**   
+1. Top right corner -> New Project    
+2. New Directory -> Empty Project   
+3. Set the directory and project name (*make sure using "git repository")   
+4. Open "gitignore" and add "*.Rproj"   
+
+
+**Set Up the Primary Index File**   
+1. Open new RMarkdown file (html format) & name "index". This is the portal website created through GitHub   
+2. Add content you want to appear on portal website using markdown syntax.    
+3. Can change appearance using settings -> output options   
+4. Make sure you knit the html!   
+
+
+**Host the New Project at GitHub**   
+1. Open GitHub desktop (cat icon)   
+2. Add project and select markdown folder that was created   
+3. Annotate "commit" functions   
+4.Once finished, click "commit to master"   
+5. Use master branch diagram to track the changes   
+
+**Publish Initial Webpage**   
+1. Click "publish" (top right) to set up your repository (only once!)   
+2. Synch your project   
+3. Log into GitHub -> repository -> settings -> GitHub pages -> master branch -> save   
+4. Yay, success! http://emikucki.github.io/Bio381   
+
+**Add a "Readme"**    
+1. Add Readme file and annotate -> save   
+
+**Synch changes locally**    
+1. Go to GitHub desktop and synch with the remote   
+
+**Deleting and Reverting**   
+1. If you made a mistake, commit it and indicate it was a mistake     
+2. THEN hit "revert". Commit frequently to ensure you save recent changes!   
+
+**Permanently Delete a Repository**   
+1. Settings on the repository page of GitHub -> Red section/"Danger Zone".   
+2. Manually enter repository name (ensures no accidental deletions)   
+3. Local copy on computer is still there so delete those too!    

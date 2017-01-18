@@ -9,7 +9,7 @@ output: html_document
 ###About Me
 I am a second-year PhD student in Biology studying the physiological consequences of increased warming in diapausing *Pieris rapae* butterflies. I am co-advised by Dr. Brent Lockwood and Dr. Alison Brody. 
 
-[UVM Graduate Student Page](http://www.uvm.edu/~biology/?Page=students/mikucki.php&SM=facultysubmenu.html)
+[UVM Biology Graduate Student Page](http://www.uvm.edu/~biology/?Page=students/mikucki.php&SM=facultysubmenu.html)
 
 ![Collecting butterflies at Shelburne Farms in Shelburne, VT](butterfly.jpg)
 
