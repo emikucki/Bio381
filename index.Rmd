@@ -1,7 +1,7 @@
 ---
 title: "Emily Mikucki’s BIO 381 Homepage"
 author: 
-date: "Spring 2017"
+date: 
 output: html_document
 ---
 ###About Me
