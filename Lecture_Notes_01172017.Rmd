@@ -9,7 +9,7 @@ Computational Biology
 1/17/17
 Course Introduction
 
-1. Think on paper (logic tree, look up table, path diagram, mock [ ])
+1. Think on paper (logic tree, look up table, path diagram)
 2. Computational Tools
 3. Core computer programming methods 
 4. Speaking skills (scientific presentation skills)
@@ -19,8 +19,8 @@ Follow code --> run through line by line
 
 GitHub = online portfolio (KEEP UP TO DATE)
 
-Two Major Presentations
-1. Research presentation (mini symposium)
+Two Major Presentations   
+1. Research presentation (mini symposium)   
 2. R Presentation (teach coding)
 
 
@@ -31,27 +31,27 @@ Resources:
 Stack overflow
 
 
-GitHub Introduction
+GitHub Introduction   
 Allows programmers to collaborate 
 
 Vocabulary 
 Version control 
-git - track files on a local computer 
-GitHub - public repository for git files (can't be modified unless publisher gives permission; can make repository private with $
-repository - set of files that you are working on and git control files 
-clone - copy the repository from GitHub to local computer 
-commit - represents snapshot changes;(see notes for "snapshot" description)
-push - pushes your commits up to GitHub
-pull - brings back to local files
-push & pull --> "synchronizes" repository and GitHub
+git - track files on a local computer    
+GitHub - public repository for git files (can't be modified unless publisher gives permission; can make repository private with $   
+repository - set of files that you are working on and git control files    
+clone - copy the repository from GitHub to local computer    
+commit - represents snapshot changes;(see notes for "snapshot" description)   
+push - pushes your commits up to GitHub   
+pull - brings back to local files   
+push & pull --> "synchronizes" repository and GitHub    
 
 
-First Lab Exercise:
-Build a GitHub repository; erase; start over; etc. 
-Practice with workflow 
+First Lab Exercise:   
+Build a GitHub repository; erase; start over; etc.    
+Practice with workflow    
 
-Email Nick --> 
-1. GitHub webpage site (address)
-2. GitHub repository (account with individual repositories) 
-3. Fun fact
+Email Nick -->    
+1. GitHub webpage site (address)   
+2. GitHub repository (account with individual repositories)    
+3. Fun fact   
 
