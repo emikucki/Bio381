@@ -1,7 +1,7 @@
 ---
 title: "Lecture_Notes_01172017"
 author: "Emily Mikucki"
-date: "January 18, 2017"
+date: "January 17, 2017"
 output: html_document
 ---
 
