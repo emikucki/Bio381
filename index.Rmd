@@ -4,8 +4,6 @@ author: "Emily Mikucki"
 date: "January 18, 2017"
 output: html_document
 ---
-
-# Emily Mikucki
 ###About Me
 I am a second-year PhD student in Biology studying the physiological consequences of increased warming in diapausing *Pieris rapae* butterflies. I am co-advised by Dr. Brent Lockwood and Dr. Alison Brody. 
 
