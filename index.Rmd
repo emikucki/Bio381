@@ -1,7 +1,7 @@
 ---
-title: "Emily’s BIO 381 Homepage"
-author: "Emily Mikucki"
-date: "January 18, 2017"
+title: "Emily Mikucki’s BIO 381 Homepage"
+author: 
+date: "Spring 2017"
 output: html_document
 ---
 ###About Me
