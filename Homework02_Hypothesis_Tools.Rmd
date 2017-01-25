@@ -17,7 +17,7 @@ output: html_document
 
 <img src="image3.JPG" width="700" height="700"/>   
    
-4. **Mock data** Here I used a hypothetical graph to show was some potential results could be for my winter warming experiment. One line shows an individual who did not adapt under winter warming (increased metabolic rate at time of warming) and one that did (consistently low m.r. at time of warming). Such data would be interesting because it would suggest plasticity of certain traits for individuals, maybe even from different populations... 
+4. **Mock data**: Here I used a hypothetical graph to show was some potential results could be for my winter warming experiment. One line shows an individual who did not adapt under winter warming (increased metabolic rate at time of warming) and one that did (consistently low m.r. at time of warming). Such data would be interesting because it would suggest plasticity of certain traits for individuals, maybe even from different populations... 
 
 <img src="image4.JPG" width="700" height="700"/>
 
