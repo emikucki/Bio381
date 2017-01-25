@@ -2,7 +2,11 @@
 title: "Emily Mikucki’s BIO 381 Homepage"
 author: 
 date: 
-output: html_document
+output: 
+  prettydoc::html_pretty:
+    theme: leonids
+    highlight: github
+  
 ---
 ###About Me
 I am a second-year PhD student in Biology studying the physiological consequences of increased warming in diapausing *Pieris rapae* butterflies. I am co-advised by Dr. Brent Lockwood and Dr. Alison Brody. 
