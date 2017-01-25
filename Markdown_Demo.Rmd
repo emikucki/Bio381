@@ -1,0 +1,70 @@
+---
+title: "First Markdown Trial"
+author: "Emily Mikucki"
+date: "January 24, 2017"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+This text has *italics*.  
+
+This text is **bold**
+
+# First Header
+
+## Second Header
+
+### etc. etc. 
+
+these         words are widely        spaced
+
+One line   
+Next line   
+Third line   
+
+(add 3 spaces after to make lines)
+
+- first item
+- second item
+    * indented item
+    * another indent 
+    
+[linked text](website address)
+
+footnote at the bottom of the page^[This will magically appear at the bottom with active links in both directions!]
+
+> quoted text is formatted this way 
+
+First Header  | Second Header
+------------- | -------------
+Content Cell  | Content Cell
+Content Cell  | Content Cell
+
+`plain text` shows this way
+
+```
+now     I     can space this!
+More of my     *text here*!
+inside this text none of the commands work
+```
+
+in line r code `r 3+ pi`
+
+```{r}
+# Annotation/comment
+Time <- seq(1,10) # seq. makes integer sequence
+print(Time)   # shows contents
+Resp <- runif(10) #random uniform (runif), gives 10 random uniforms
+print(Resp)
+plot(x=Time, y=Resp, type="b") #b is both  point and line connecting 
+
+```
+
+### In line equation 
+Put an equation $a = b + c$ in my sentence 
+
+Set equation on its own line with this 
+
+$$ a = b + c$$
+

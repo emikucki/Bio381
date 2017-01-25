@@ -15,14 +15,17 @@ I am a second-year PhD student in Biology studying the physiological consequence
 
 ##Assignments:
 
-* [Assignment 1 Placeholder](Test.html)      
+* Assignment 1       
 * Assignment 2 
 
 ##Notes:
 
 ####Lecture
-* [January 17, 2017](Lecture_Notes_01172017.html)   
+* [January 17, 2017: Course Introduction](Lecture_Notes_01172017.html)   
+* [January 24, 2017: Working with RStudio](Lecture_Notes_01242017.html)
 
 #### Lab
-* [January 18, 2017](Lab_Notes_01182017.html)
+* [January 18, 2017: Creating a Repository](Lab_Notes_01182017.html)
 
+#### Demos
+* [January 24, 2017: RMarkdown Demo](Markdown_Demo.html)

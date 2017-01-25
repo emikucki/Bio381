@@ -1,0 +1,66 @@
+---
+title: "Lecture_Notes_01242017"
+author: "Emily Mikucki"
+date: "1/24/2017"
+output: html_document
+---
+###Working with R Studio   
+_____________________________   
+Objective: Understand file types and structures in RStudio; set-up R for preferred structure during the course   
+_____________________________   
+"Global Options"
+
+Code -> Editing -> Keybindings -> Default *Do not want "vim" selected. 
+
+Code -> Display -> show whitespace characters 
+Rmarkdown -> Show output preview -> Viewer pane
+
+Help -> Markdown -> Quick Reference 
+
+______________________________
+Kinds of files:
+
+plain-text files- 
+have only simple, readable characters. 
+Can open in most  programs.
+"what you see is what you want/need" (wysisys)
+will be converted into different document type, need be.   
+_______________________________   
+Languages:
+
+LaTex- 
+1970s Donald Knuth
+Thousands of typesetting commands
+Make slides and equations 
+
+Markdown-
+Very simple version of LaTex
+Easy to use
+*italic*
+
+Rmarkdown-
+Mix in lines of R code and get them to run
+Create a file - filename.Rmd
+knit to filename.html (webpage), filename.pdf or filename.docx
+-------
+(yaml = yet another markdown language; yaml ain't no markdown language; don't mess with because spacing is important- keep as is)
+------- 
+
+markdown template (after yaml) provided by RStudio
+
+Build an equation in Rmarkdown-
+Put an equation $a = b + c$ in my sentence 
+
+Set equation on its own line with this 
+
+$$ a = b + c$$
+
+__________________________________
+Commands:
+ctrl/shift/k = knit 
+command/enter = close window
+command/alt/i = insert chunk (now in "r coding" language
+
+
+gear -> output options -> syntax highlighting & theme = change colors *changes yaml
+
