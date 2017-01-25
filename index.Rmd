@@ -31,5 +31,5 @@ I am a second-year PhD student in Biology studying the physiological consequence
 #### Lab
 * [January 18, 2017: Creating a Repository](Lab_Notes_01182017.html)
 
-#### Demos
+## Demos:
 * [January 24, 2017: RMarkdown Demo](Markdown_Demo.html)
