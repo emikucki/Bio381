@@ -27,6 +27,7 @@ I am a second-year PhD student in Biology studying the physiological consequence
 ####Lecture
 * [January 17, 2017: Course Introduction](Lecture_Notes_01172017.html)   
 * [January 24, 2017: Working with RStudio](Lecture_Notes_01242017.html)
+* [January 26, 2017: Working with RStudio Cont.](Lecture_Notes_01262017.html)
 
 #### Lab
 * [January 18, 2017: Creating a Repository](Lab_Notes_01182017.html)

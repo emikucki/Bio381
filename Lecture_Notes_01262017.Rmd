@@ -1,0 +1,20 @@
+---
+title: "Lecture_Notes_01262017"
+author: "Emily Mikucki"
+date: "January 26, 2017"
+output: html_document
+---
+###RStudio Continued:
+
+**In a chunk:**
+{r, echo=FALSE} vs. {r, eval=FALSE}   
+echo-> you see plot in output   
+eval-> you don't see plot in output   
+
+**New Commands:**   
+shift/command/enter = source with echo   
+Notebook icon for .R -> .html (cool!)   
+ctrl/l = new, clean console line   
+library(knitr) -> purl = pulls chunks out of .Rmd and transforms into .R   
+
+(#') in .R will render as markdown and will show as a sentence in the .html
