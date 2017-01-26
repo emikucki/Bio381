@@ -1,7 +1,7 @@
 ---
 title: "First Markdown Trial"
 author: "Emily Mikucki"
-date: "January 24, 2017"
+date: "January 24-26, 2017"
 output:
   html_document: default
   pdf_document: default
@@ -67,4 +67,38 @@ Put an equation $a = b + c$ in my sentence
 Set equation on its own line with this 
 
 $$ a = b + c$$
+
+###Subscripts in LaTex
+
+$$H_0 = Z_{a + b}$$
+
+In Markdown, we say H~0~
+
+###Superscripts 
+
+$$S = cA^z$$
+
+###Combining elements
+
+$$S=cA^z_1 = z_{2+ x_0}$$
+
+###Special symbols
+$$\alpha = \frac{\beta}{\gamma + \delta_x}$$
+
+###Using the backslash 
+$$\backslash \alpha \le b \backslash$$
+
+###Summation sign
+
+$$z = \sum_{i=1}^X{K}$$
+
+###Remndering plaintext in LaTex
+
+$$P(\mbox{Occurence Of Species A}) = Z$$
+
+
+```{r}
+plot(runif(20))
+print(seq(1,5))
+```
 
