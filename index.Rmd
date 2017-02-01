@@ -23,9 +23,9 @@ I am a second-year PhD student in Biology studying the physiological consequence
 * [Assignment 2 ](Homework02_Hypothesis_Tools.html)
 * **Assignment 3**
     + [Hypotheses Flowchart (don't forget to slide!)](Hypotheses_Flowchat.html)   
-    + [Original Powerpoint]   
-    + [Beamer Slides (.RMD)]   
-    + [Beamer Slides (PDF)]
+    + [Original Powerpoint](Beamer_Slides_02012017_Original.pdf)   
+    + [Beamer Slides (.Rmd)](Beamer_Slides_02012017.Rmd)   
+    + [Beamer Slides (PDF)](Beamer_Slides_02012017.pdf)
     
 ##Notes:
 

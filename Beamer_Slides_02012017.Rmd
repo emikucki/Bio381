@@ -1,0 +1,170 @@
+---
+title: Can butterflies stand the heat? The physiological consequences of increased warming in diapausing *Pieris rapae*
+  butterflies
+author: "Emily Mikucki"
+date: "2/1/2017"
+output:
+  beamer_presentation: default
+  ioslides_presentation: default
+---
+##
+ \begin{picture}(320,250)
+ \put(40,40){\includegraphics[height=6cm]
+ {Winter.jpg}}
+ \put(00,60){\begin{minipage}[t]{1\linewidth}
+ \end{minipage}}
+ \end{picture}
+ 
+ ##
+  \begin{picture}(320,250)
+ \put(-20,40){\includegraphics[height=6cm]
+ {Map.png}}
+ \put(00,00){\begin{minipage}[t]{1\linewidth}
+ \end{minipage}}
+ \end{picture}
+ 
+ ##\Large Overwintering organisms will be exposed to novel thermal conditions under winter warming
+  \begin{picture}(320,250)
+ \put(-20,40){\includegraphics[height=5.6cm]
+ {Overwintering_Organisms.png}}
+ \put(00,00){\begin{minipage}[t]{1\linewidth}
+ \end{minipage}}
+ \end{picture}
+ 
+ ##
+ \LARGE What are the physiological consequences of temperature anomalies on diapausing 
+Pieris rapae? 
+
+## \Large Cabbage white good system for studying species’ responses to climate change
+  \begin{picture}(320,250)
+ \put(-20,60){\includegraphics[height=5.2cm]
+ {Distribution.png}}
+ \put(00,00){\begin{minipage}[t]{1\linewidth}
+ \end{minipage}}
+ \end{picture}
+ 
+ ## \Large Seasonal metamorphic cycle of a VT cabbage white
+   \begin{picture}(320,250)
+ \put(-20,60){\includegraphics[height=5.2cm]
+ {cycle.png}}
+ \put(00,00){\begin{minipage}[t]{1\linewidth}
+ \end{minipage}}
+ \end{picture}
+ 
+ ## \Large Environmental factors that induce diapause have been previously studied (over 40 years ago!)
+ \begin{picture}(320,250)
+ \put(-20,60){\includegraphics[height=5.2cm]
+ {old_research.png}}
+ \put(00,00){\begin{minipage}[t]{1\linewidth}
+ \end{minipage}}
+ \end{picture}
+
+## \Large Diapause is primarily induced by reduced photoperiod 
+
+Population | Diapause Induction
+------------- | -------------
+Tokyo, Japan (Kono 1970) | 13 hours $\geq$ light ==> Diapause
+Maryland, USA (Barker 1962) | 13 hours $\geq$ light ==> Diapause
+Vermont, USA | ?
+
+##\Large Diapause induction varies across photoperiods and temperatures in a VT population 
+ \begin{picture}(320,250)
+ \put(-10,60){\includegraphics[height=5.2cm]
+ {methods_table.png}}
+ \put(00,00){\begin{minipage}[t]{1\linewidth}
+ \end{minipage}}
+ \end{picture}
+ 
+ ## \Large Diapause is primarily induced by reduced photoperiod – latitude 
+ \begin{picture}(320,250)
+ \put(15,60){\includegraphics[height=5.2cm]
+ {results_table.png}}
+ \put(00,00){\begin{minipage}[t]{1\linewidth}
+ \end{minipage}}
+ \end{picture}
+ 
+ ## \Large Conclusions: Diapause induction
+ - Photoperiod differentially induces diapause in different populations (potentially due to latitude)   
+- VT populations enter diapause under longer photoperiod (14L:10D)   
+- Potential interaction between photoperiod and temperature that affects the diapause response   
+
+## \Large Short-term increased warming in diapausing pupae
+ \begin{picture}(320,250)
+ \put(00,60){\includegraphics[height=5.2cm]
+ {methods_table2.png}}
+ \put(00,00){\begin{minipage}[t]{1\linewidth}
+ \end{minipage}}
+ \end{picture}
+ 
+ ## \Large Pupal weight decreased under short-term warming
+  \begin{picture}(320,250)
+ \put(30,30){\includegraphics[height=7cm]
+ {graph1.png}}
+ \put(00,00){\begin{minipage}[t]{1\linewidth}
+ \end{minipage}}
+ \end{picture}
+ 
+ ## \Large Temperature affects pupal weight under 12L:12D photoperiod
+   \begin{picture}(320,250)
+ \put(65,30){\includegraphics[height=7cm]
+ {graph2.png}}
+ \put(00,00){\begin{minipage}[t]{1\linewidth}
+ \end{minipage}}
+ \end{picture}
+ 
+ ## \Large Photoperiod does not affect pupal weight under 22°C
+ \begin{picture}(320,250)
+ \put(65,30){\includegraphics[height=7cm]
+ {graph3.png}}
+ \put(00,00){\begin{minipage}[t]{1\linewidth}
+ \end{minipage}}
+ \end{picture}
+ 
+ ## \Large Conclusions: Short-term warming 
+ - Pupal weight decreased under short-term warming   
+ - P. rapae pupae from the fluctuating temperature treatment lost the least weight under short-term warming   
+ - Photoperiod had no effect on pupal weight under increased warming   
+ - Will P. rapae be resilient under increased temperature variation/winter warming?
+ 
+## \Large What are the physiological consequences of temperature anomalies on diapausing Pieris rapae? 
+ - Diapause induction & exit   
+ - Metabolic rate   
+ - Pupation length   
+ - Survial & success to eclosion   
+ 
+ \begin{picture}(320,250)
+ \put(65,100){\includegraphics[height=5cm]
+ {cycle2.png}}
+ \put(60,00){\begin{minipage}[t]{1\linewidth}
+ \end{minipage}}
+ \end{picture}
+
+## Future Directions
+ 1. The physiological consequences of short-term & long-term winter warming   
+
+ 2. VT populations vs. NC populations: differential responses to winter temperature and seasonal anomalies? 
+
+## Acknowledgements   
+
+Dr. Brent Lockwood & lab members   
+Dr. Alison Brody & lab members   
+
+Field crew:   
+Rose Scavotto   
+Sarah Howe   
+Ben Chomitz   
+Hailey Moll   
+
+Pieris Project Collaborators   
+Dr. Sean Ryan
+ \begin{picture}(320,250)
+ \put(180,200){\includegraphics[height=5.9cm]
+ {acknow.png}}
+ \put(100,00){\begin{minipage}[t]{1\linewidth}
+ \end{minipage}}
+ \end{picture}
+
+
+
+
+ 
