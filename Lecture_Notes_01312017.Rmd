@@ -1,0 +1,44 @@
+---
+title: "Lecture_Notes_01312017"
+author: "Emily Mikucki"
+date: "1/31/2017"
+output: html_document
+---
+###Typora and Beamer Slide Presentations   
+
+Typora = clean, markdown editor    
+Does the rendering immediately (transforms as you type)   
+command/ for enter & exit into r language   
+cntrl enter for double spacing   
+
+Can export as PDF and HTML; uses the format in Typora   
+
+Help -> more topics -> Draw diagrams with markdown    
+For hypotheses flow charts!   
+File -> Preferences -> Editor -> Markdown -> Diagrams   
+
+**Changing RStudio styles**    
+Typora -> Preferences -> Appearance -> Open theme folder -> save css   file/folder to desktop -> go to RStudio markdown -> gear -> output option -> apply css file -> browse desktop   
+
+**Open RMarkdown File in Typora**   
+Output options in Rmarkdown -> Advanced -> Keep markdown source file -> Typora -> Open -> .css file   
+
+
+**Using Beamer Slides**   
+
+New Rmarkdown (+) -> Presentation -> PDF (beamer)   
+
+-> render slide bullets incrementally   
+
+
+**Nick's pet peeves for graduate student presentations**   
+
+**Don'ts**   
+* no "uhms" or "uhs" -> silence or pause is GOOD   
+* too much mumbling and rushing   
+* introductory material - how much is necessary?   
+  * too much (EEEB)   
+  * too little (CMB)   
+* no uptalk!   
+* try not to have people interrupt you   
+* don't ask for feedback; people will give it no matter what   
