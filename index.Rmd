@@ -21,7 +21,12 @@ I am a second-year PhD student in Biology studying the physiological consequence
 
 * [Assignment 1](sloth_attack.jpg)       
 * [Assignment 2 ](Homework02_Hypothesis_Tools.html)
-
+* **Assignment 3**
+    + [Hypotheses Flowchart (don't forget to slide!)](Hypotheses_Flowchat.html)   
+    + [Original Powerpoint]   
+    + [Beamer Slides (.RMD)]   
+    + [Beamer Slides (PDF)]
+    
 ##Notes:
 
 ####Lecture
