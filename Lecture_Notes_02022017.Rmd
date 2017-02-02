@@ -1,0 +1,53 @@
+---
+title: "Lecture_Notes_02022017"
+author: "Emily Mikucki"
+date: "February 2, 2017"
+output: html_document
+---
+Computational Biology
+Lecture Notes
+02/02/2017
+
+Nick's pet peeves for graduate student presentations   
+
+Dos:   
+-make eye contact    
+-project your voice   
+-use the stage    
+-keep it short (make your talk fit the material you have)   
+-use a lot of slides (40 minutes --> 100-120 slides)   
+-use sequential bullet points    
+-have good graphics with clear and visible axes (explain what is on the x/y axes and the units)    
+-control lights (know how to work the lights and projectors)   
+-figure out your personal style, strengths, and weaknesses   
+-practice! (outloud, standing up, videotape yourself, give the talk to the mirror, "practice" when you teach)   
+
+
+Don'ts cont.   
+-read your slides    
+-no laser pointer (if you can't control it...)   
+______________________________________________
+
+**Creating and Importing Data** 
+
+Data frame   
+-flat file   
+-rows - smaller possible sampling unit    
+-columns - attributes of samples   
+(In R)   
+-all elements in a column are of one "type"  
+-all columns are of the same length    
+-"NA" is a symbol for a missing value  
+-variable names(file and folder names) should have no spaces or special characters   
+-first variable should be an "ID" variable (consecutive numbering)
+-data in "long" format is a good organization   
+ 
+-*create the proper meta-data (tension between producers and consumers) --> won't forget it!   
+- #comment --> embed the meta data in the data file  
+
+For uploading to github, use "gitignore" to privatize dataset - not being tracked and updated by github!   
+
+
+ 
+
+
