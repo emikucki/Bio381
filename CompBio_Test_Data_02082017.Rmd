@@ -1,0 +1,30 @@
+---
+title: "CompBio_Data_Annotated_Test_Data"
+author: "Emily Mikucki"
+date: "2/8/2017"
+output: html_document
+---
+####Diapausing Pupal Weight Data Fall 2016
+```{r}
+#assign csv to "data"
+data <- read.table("CompBio_Data_Set.csv", header=TRUE, sep=",", stringsAsFactors = F)
+#Data for first 6 individuals 
+head(data)
+#Data for last 6 individuals 
+tail(data)
+#Looks at the structure of the data set. Here: 29 obs. 14 variables 
+str(data)
+#Summarizes the data set with major values, characters, etc. 
+summary(data)
+
+#To make sure there are only 3 photoperiods
+table(data$Photoperiod)
+
+#To make sure there are only 3 temperatures
+table(data$Temperature)
+
+#To make sure there are only 5 populations
+table(data$Population)
+
+```
+
