@@ -1,0 +1,97 @@
+---
+title: "Lecture_Notes_02072017"
+author: "Emily Mikucki"
+date: "February 7, 2017"
+output: html_document
+---
+**Regular Expressions**
+
+Use plain text editor (textwrangler)  
+
+Editor defaults -> soft wrap text -> window width    
+
+cntrl/f -> matching -> grep     
+grep= global regular expression print   
+
+replace one at a time; can't undo replace all   
+
+####Types of characters
+literal characters - characters as is "." is a "."   
+metacharacters - special characters that represent something else (".", "#", etc.)   
+"escaping the metacharacter" = search literally for that special character add \ before    
+
+using grep = red (regular formatting); "." actually searching for a "wild card" - every single character    
+
+####List of useful metacharacters (i.e. wildcards)
+```
+\w = a single "word" character    
+-> (all caps, all lowercase, 0-9, and _)   
+\d = a single number character    
+-> (0-9)   
+\t = a single tab space    
+\s = a single tab, space or line break   
+\n = a single line break   
+. = any single letter, digit, space, symbol or a line (anything!)   
+* all of the above only search for one thing  
+```
+
+__________________________________________________________
+```
+find \s ; replace with \n = puts things on separate lines 
+crow raven grackle **to**
+crow    
+raven    
+grackle   
+
+find \.\s   
+replace \.\n    
+(does something....)   
+```
+__________________________________________________________
+
+####Negated wildcards 
+```
+=predefined set of characters    
+\W = NOT \w (complimentary negated)   
+\D = NOT \d    
+\T    
+\S  
+```
+
+####Custom character sets
+```
+[what follows will define my character set]   
+[A-Za-z]    
+[ACTG]    
+```
+
+**Negated character sets**   
+```
+[^A-Z] = anything but a capital letter    
+[^A-Za-z_0-9] = equal to \W    
+[^\t] = anything except a tab = \T   
+```
+
+**Quantifiers**   
+```
+\w+ = 1 or more consecutive word characters   
+does not get things like (), ., etc.    
+\w* = 0 or more consecutive word characters    
+     \w{3} = exactly 3 consecutive word characters    
+\w{3,5} = exactly 3, 4 or 5 matches    
+\w{3,} = 3 or more matches   
+[ACTG]{3,}   
+find \s*,\s*   
+replace ,   
+^ shows how to get rid of unwanted spaces   
+
+.+ grabs everything (1 or more)   
+.* grabs everything (0 or more)   
+
+( ) keeps the wanted materials   
+
+**replace \1 = first set of parentheses**    
+**\2 # \1** flip, add a # and reverse the parentheses (keepers)   
+```
+
+
