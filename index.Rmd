@@ -28,7 +28,7 @@ I am a second-year PhD student in Biology studying the physiological consequence
     + [Beamer Slides (PDF)](Beamer_Slides_02012017.pdf)
 * **Assignment 4**
     + [Sample Data: Transform .csv to .Rmd](CompBio_Test_Data_02082017.html)
-    + [Working with Regular Expressions]
+    + [Working with Regular Expressions](Regular_Expressions_HW4.html)
     
 ##Notes:
 

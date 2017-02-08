@@ -1,0 +1,135 @@
+---
+title: "Regular_Expressions_HW4"
+author: "Emily Mikucki"
+date: "2/8/2017"
+output: html_document
+---
+**1.**
+
+**Transformed**
+```
+First String    Second      1.22      3.4
+Second          More Text   1.555555  2.2220
+Third           x           3         124
+```
+**TO**
+```
+First String,Second,1.22,3.4
+Second,More Text,1.555555,2.2220
+Third,x,3,124
+```
+**BY**
+```
+find \s{2,}
+replace ,
+```
+
+**2.**
+
+**Transformed**
+```
+Ballif, Bryan, University of Vermont
+Ellison, Aaron, Harvard Forest
+Record, Sydne, Bryn Mawr
+```
+**TO**
+```
+Bryan Ballif (University of Vermont)
+Aaron Ellison (Harvard Forest)
+Sydne Record (Bryn Mawr)
+```
+**BY**
+```
+find (\w+), (\w+), (.+)
+replace \2 \1 (\3)
+```
+
+**3.1**
+**Transformed**
+```
+0001 Georgia Horseshoe.mp3 0002 Billy In The Lowground.mp3 003 Cherokee Shuffle.mp3 0004 Walking Cane.mp3
+```
+**TO**
+```
+0001 Georgia Horseshoe.mp3 
+0002 Billy In The Lowground.mp3 
+0003 Cherokee Shuffle.mp3 
+0004 Walking Cane.mp3
+```
+**BY**
+```
+find mp3 (there's a space there)
+replace mp3 \n
+```
+
+**3.2**
+
+**Transformed**
+```
+0001 Georgia Horseshoe.mp3 
+0002 Billy In The Lowground.mp3 
+0003 Cherokee Shuffle.mp3 
+0004 Walking Cane.mp3
+```
+
+**TO**
+```
+Georgia Horseshoe_0001.mp3 
+Billy In The Lowground_0002.mp3 
+Cherokee Shuffle_0003.mp3 
+Walking Cane_0004.mp3
+```
+**BY**
+```
+find (\d+) (.+)[.mp3]{4}
+replace \2_\1.mp3
+```
+
+**4.1**
+
+**Transformed**
+```
+Camponotus,pennsylvanicus,10.2,44
+Camponotus,herculeanus,10.5,3
+Myrmica,punctiventris,12.2,4
+Lasius,neoniger,3.3,55
+```
+**To**
+
+```
+C_pennsylvanicus,44
+C_herculeanus,3
+M_punctiventris,4
+L_neoniger,55
+```
+
+**BY**
+```
+find (\w)(\w+),(\w+),.+,(.+)
+replace \1_\3,\4
+```
+
+**4.2**
+
+**Transformed**
+```
+Camponotus,pennsylvanicus,10.2,44
+Camponotus,herculeanus,10.5,3
+Myrmica,punctiventris,12.2,4
+Lasius,neoniger,3.3,55
+```
+
+**TO**
+
+```
+C_penn,44
+C_herc,3
+M_punc,4
+L_neon,55
+```
+
+**BY**
+```
+find (\w)(\w+),(\w{4})(\w+),(.+),(.+)
+replace \1_\3,\6
+```
