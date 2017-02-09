@@ -1,0 +1,127 @@
+---
+title: "Lecture_Notes_02092017"
+author: "Emily Mikucki"
+date: "2/9/2017"
+output: html_document
+---
+####Regular Expressions Continued
+
+```
+x, MyWord OtherJunk. , 
+13, MyWord2, OtherStuff,,
+x13, MyThirdWord,		MoreTrash, !##
+xxx,LastWord	x.
+
+**TO**
+MYWORD: MyWord Leader: x
+MYWORD: MyWord2 Leader: 13
+MYWORD: MyThirdWord Leader: x13
+MYWORD: LastWord Leader: xxx
+
+**BY**
+find (\w+),\s*(\w+).*
+replace MYWORD: \2 Leader: \1
+_________________________________________
+
+x, MyWord OtherJunk. , 
+13, MyWord2, OtherStuff,,
+x13, MyThirdWord,		MoreTrash, !##
+xxx,LastWord	x.
+
+**TO**
+
+MYWORD: MyWord LEFTOVER:  OtherJunk. , 
+MYWORD: MyWord2 LEFTOVER: , OtherStuff,,
+MYWORD: MyThirdWord LEFTOVER: ,		MoreTrash, !##
+MYWORD: LastWord LEFTOVER: 	x.
+
+**BY**
+find \w+,\s*(\w+)(.*)
+replace MYWORD: \1 LEFTOVER: \2
+__________________________________________
+
+Lasius neoniger  -> L_neoniger
+Lasius umbratus  -> L_umbratus
+Myrmica punctiventris -> M_punctiventris
+
+show captures:
+(L)asius (neoniger)
+(\w) (\w+)				show caputures
+(\w)\w+ (\w+)			write rejects
+\1_\2					write replacements 
+
+*\s cant use in replace because it signifies multiple things (tab, space, etc.)
+
+L_neoniger  
+L_umbratus  
+M_punctiventris 
+
+
+Lasius neoniger
+Lasius umbratus
+Myrmica punctiventris
+
+Myrmica sp 
+(?) how account for this?
+
+find (\w{1,3})\w*\s(\w{1,3}).*
+replace \1\2
+
+->
+
+Lasneo
+Lasumb
+Myrpun
+Myrsp 
+
+____________________________________
+**Boundary stakes**
+^ = start of a line 
+$ = end of a line
+\b = beginning or ending of a word
+\B = not a beginning or ending of a word
+_____________________________________
+
+Try to ascertain a kind of karma
+
+find \ba \b = only "a" 
+find \ba = only "a"scertain and "a"
+find \ba\B = only "a"scertain
+find \Ba\B = ascert"a"in and k"a"rma
+
+_____________________________________
+
+WordA,OneWord,WordZ
+WordA,Two Words,WordZ
+WordA,Three More Words,WordZ
+WordA,Four or More Words,WordZ
+
+
+find ^\w+,([^,]+),\w+$
+replace \1 
+
+OneWord
+Two Words
+Three More Words
+Four or More Words
+
+*Try to come up with a way to describe what you don't want. May be easier. 
+
+______________________________________
+
+LC1 11101 gbb
+LC2 200o1 xxx
+LC4 l0001 xxx
+LC3 30401 xxx
+
+find the errors (fix them by hand)
+^(\w+ \d*\D+\S* \w+)$
+replace BadLine: \1
+
+if it doesn't find a match, prints it, and leaves it alone 
+
+LC1 11101 gbb
+BadLine: LC2 200o1 xxx
+BadLine: LC4 l0001 xxx
+LC3 30401 xxx 
+```
