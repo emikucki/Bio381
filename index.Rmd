@@ -40,6 +40,7 @@ I am a second-year PhD student in Biology studying the physiological consequence
 * [February 2, 2017: Creating and Importing Data](Lecture_Notes_02022017.html)
 * [February 7, 2017: Regular Expressions](Lecture_Notes_02072017.html)
 * [February 9, 2017: Regular Expressions Cont.](Lecture_Notes_02092017.html)
+* [February 14, 2017: Data Structures in R](Lecture_Notes_02142017.html)
 
 #### Lab
 * [January 18, 2017: Creating a Repository](Lab_Notes_01182017.html)
@@ -49,5 +50,6 @@ I am a second-year PhD student in Biology studying the physiological consequence
 * [January 26, 2017: First R Script](First_Script.html)
 * [January 31, 2017: Typora Demo](Typora_Demo_01312017.pdf)
 * [January 31, 2017: Beamer Slides Demo](Beamer_Demo.pdf)
+* [February 14, 2017: Data Structures in R](R_Data_Structure_02142017.Rmd)
 
 

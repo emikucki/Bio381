@@ -1,0 +1,45 @@
+---
+title: "Lecture_Notes_02142017"
+author: "Emily Mikucki"
+date: "2/14/2017"
+output: html_document
+---
+###Data Structures
+
+**Potential R Presentation Ideas**   
+* a shiny = html web page    
+* debugging tools   
+* igraph   
+
+```
+Plaintext editor for entering data:
+* find \t*   
+* replace ,   
+-> creates csv format   
+```
+
+**Disadvantages of R**   
+1. Interpreted (machine language)   
+2. Lazy evaluation   
+3. Functions hard to learn (i.e. hard to find a function for what you want)   
+4. Poorly documented   
+5. Unreliable packages; open-source but no quality control   
+6. Problems working with big data (bioinformatics, etc.)   
+   + Functions that use "C" code   
+   + Julia (free, open source, similar to R, etc.) operates like a compile language; might be good for big data projects   
+   
+**Dimensions**   
+homogenous vs. heterogenous    
+1-dimensional: atomic vector / List   
+2-dimensional: matrix / Dataframe     
+3-dimensional: array /    
+
+**Types of Atomic Vectors**   
+* Character strings   
+* Numeric (Integers and Double (rational numbers))   
+* Logical (TRUE, FALSE)   
+
+
+
+
+
