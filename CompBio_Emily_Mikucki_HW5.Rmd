@@ -1,0 +1,145 @@
+---
+title: "CompBio_Emily_Mikucki_HW5"
+author: "Emily Mikucki"
+date: "February 15, 2017"
+output: html_document
+---
+###1. Suppose x = 1.1, a = 2.2, and b = 3.3. Assign each expression to the value of the variable zand print the value stored in z.
+###a.
+```{r}
+x<- 1.1
+a<-2.2
+b<-3.3
+
+z<-x^a^b
+print(z)
+```
+###b.
+```{r}
+z<- (x^a)^b
+print(z)
+```
+###c.
+```{r}
+z<- (3*x^3) + (2*x^2) + 1
+print(z)
+```
+###d.
+```{r}
+floor((z %% 1)*10)
+```
+
+###2. Using the rep and seq functions, create the following vectors:
+###a.
+```{r}
+c(rep(1:8), rep(7:1))
+```
+###b.
+```{r}
+rep(1:5, c(1,2,3,4,5))
+```
+###c.
+```{r}
+rep(5:1, c(1,2,3,4,5))
+```
+###3. Create a vector of two random uniform numbers. In a spatial map, these can be interpreted as x and y coordinates that give the location of an individual (such as a marked forest tree in a plot that has been mapped). Using one of R’s inverse trigonometry functions (asin(), acos(), or atan()), convert these numbers into polar coordinates (If you don’t know what polar coordinates are, read about them on the web or in your calculus textbook).
+```{r}
+xy <- runif(2)
+xy
+
+theta <- atan(xy[2]/xy[1])
+theta
+
+r <- sqrt(xy[1]^2 + xy[2]^2)
+r
+
+polarcords <- c(r, theta)
+polarcords
+```
+
+###4. Suppose that queue <- c("sheep", "fox", "owl", "ant") and that queue represents the animals that are lined up to enter Noah’s Ark, with the sheep at the front of the line. Using R expressions, update the queue successively as
+
+###a.
+```{r}
+q <- c("sheep", "fox", "owl", "ant")
+q
+
+q[5] <- ("serpent") 
+q
+```
+###b. 
+```{r}
+q <- q[-1]
+q
+```
+###c. 
+
+```{r}
+q <- (c ("donkey",q))
+q
+```
+###d. 
+```{r}
+q<- q[-5]
+q
+```
+###e. 
+```{r}
+q<-q[-3]
+q
+```
+###f. 
+```{r}
+q <- c(q[1:2], "aphid", q[3])
+q
+```
+###g.
+```{r}
+grep("aphid", q)
+```
+###5. Use R to create a vector of all of the integers from 1 to 100 that are not divisible by 2, 3, or 7.
+```{r}
+z<- rep(1:100)
+z <- z[-which(z%%2==0)]
+z <- z[-which(z%%3==0)]
+z <- z[-which(z%%7==0)]
+z
+
+z <- z[z%%2 !=0 & z%%3 !=0 & z%%7 !=0]
+print(z)
+str(z)
+```
+###6. Create a vector z of 1000 random uniform numbers.
+
+###a. create a vector that contains 3 numbers: the proportion of the numbers in z that are less than 0.10, greater than 0.90, and between 0.45 and 0.55.
+```{r}
+z <- runif(1000)
+y <- c((sum (z < 0.1)/1000), (sum(z >0.9)/1000), (sum(z >0.45 & z < 0.55)/1000))
+y
+
+```
+###b & c. Making successive copies of z, transform your vector of uniform numbers in the following ways:
+```{r}
+#log (base 10) of z
+z <- log10(z)
+a <- c((sum (z < 0.1)/1000), (sum(z >0.9)/1000), (sum(z >0.45 & z < 0.55)/1000))
+a
+
+#z2
+z<-z^2
+b <- c((sum (z < 0.1)/1000), (sum(z >0.9)/1000), (sum(z >0.45 & z < 0.55)/1000))
+b
+
+#e^z
+z <- exp(z)
+c <- c((sum (z < 0.1)/1000), (sum(z >0.9)/1000), (sum(z >0.45 & z < 0.55)/1000))
+c
+
+#square root of z
+z <- sqrt(z)
+d <- c((sum (z < 0.1)/1000), (sum(z >0.9)/1000), (sum(z >0.45 & z < 0.55)/1000))
+d
+
+```
+
+

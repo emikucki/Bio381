@@ -29,6 +29,7 @@ I am a second-year PhD student in Biology studying the physiological consequence
 * **Assignment 4**
     + [Sample Data: Transform .csv to .Rmd](CompBio_Test_Data_02082017.html)
     + [Working with Regular Expressions](Regular_Expressions_HW4.html)
+* [Assignment 5](CompBio_Emily_Mikucki_HW5.html)
     
 ##Notes:
 
