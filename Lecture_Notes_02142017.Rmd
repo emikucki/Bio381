@@ -1,6 +1,6 @@
 ---
 title: "Lecture_Notes_02142017"
-author: "Emily Mikucki"
+author: ""
 date: "2/14/2017"
 output: html_document
 ---
@@ -38,6 +38,9 @@ homogenous vs. heterogenous
 * Character strings   
 * Numeric (Integers and Double (rational numbers))   
 * Logical (TRUE, FALSE)   
+* Factor   
+
+
 
 
 

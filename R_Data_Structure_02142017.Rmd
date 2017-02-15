@@ -1,6 +1,6 @@
 ---
 title: "R_Data_Structure_02142017"
-author: "Emily Mikucki"
+author: ""
 date: "February 14, 2017"
 output: html_document
 ---

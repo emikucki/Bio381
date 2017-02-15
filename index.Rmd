@@ -50,6 +50,6 @@ I am a second-year PhD student in Biology studying the physiological consequence
 * [January 26, 2017: First R Script](First_Script.html)
 * [January 31, 2017: Typora Demo](Typora_Demo_01312017.pdf)
 * [January 31, 2017: Beamer Slides Demo](Beamer_Demo.pdf)
-* [February 14, 2017: Data Structures in R](R_Data_Structure_02142017.Rmd)
+* [February 14, 2017: Data Structures in R](R_Data_Structure_02142017.html)
 
 
