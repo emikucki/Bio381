@@ -43,6 +43,7 @@ I am a second-year PhD student in Biology studying the physiological consequence
 * [February 9, 2017: Regular Expressions Cont.](Lecture_Notes_02092017.html)
 * [February 14, 2017: Data Structures in R](Lecture_Notes_02142017.html)
 * [February 16, 2017: Data Structures in R Cont.](CompBio_Lecture_Notes_02162017.html)
+* [February 21, 2017: Subsetting in R](CompBio_Lecture_Notes_02212017.html)
 
 #### Lab
 * [January 18, 2017: Creating a Repository](Lab_Notes_01182017.html)
