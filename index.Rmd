@@ -44,6 +44,7 @@ I am a second-year PhD student in Biology studying the physiological consequence
 * [February 14, 2017: Data Structures in R](Lecture_Notes_02142017.html)
 * [February 16, 2017: Data Structures in R Cont.](CompBio_Lecture_Notes_02162017.html)
 * [February 21, 2017: Subsetting in R](CompBio_Lecture_Notes_02212017.html)
+* [February 23 & 28, 2017: Probability Distributions](CompBio_Lecture_Notes_02232017.html)
 
 #### Lab
 * [January 18, 2017: Creating a Repository](Lab_Notes_01182017.html)
