@@ -1,0 +1,187 @@
+---
+title: "CompBio_Lecture_Notes_03022017"
+author: "Emily Mikucki"
+date: "3/2/2017"
+output: html_document
+---
+###**Working with Functions**   
+* Everything in R is a function   
+```{r}
+sum(3,2) #"prefix" function
+3 + 2 #"operator" element; is actually a function
+`+`(3,2) #"infix" function
+y <- 3
+`<-` (yy,3) #infix
+print(yy)
+```
+####**Writing our own functions**:   
+* To see the contents of a function, you just need to print it   
+```{r}
+#print(read.table) #whole lot of Rcode here for a single R function 
+sum(3,2)
+print(sum) #less complex; primitive function that is coded in C
+sum()
+
+```
+
+####**Creating and describing functions**:   
+* Want small/easy functions    
+* Provide default values for functions   
+```{r}
+####
+#FUNCTION: FunctionName
+#descriptior:
+#inputs:
+#outputs:
+
+# FunctionName <- function(parameterX=defaultX, parameterY=defaultY, parameterZ=defaultZ) {
+
+# lines of R code (with annotations)
+# calls to other functions 
+# create new functions 
+# operations on parX, parY, parZ
+
+# MyOut <-
+# return(MyOut)
+
+# } #end of function body
+####
+# print(FunctionName)
+# FunctionName(a, b, c)
+# FunctionName()
+```
+####**Our first function** 
+```{r}
+##########################
+#FUNCTION: HardyWeinberg
+#input: p, allelic frequency (0,1)
+#output: p and three genotype frequencies (AA, AB, BB)
+#_________________________
+Hardyweinberg <- function(p=runif(1)) {
+  q <- 1 - p
+  fAA <- p^2
+  fAB <- 2*p*q
+  fBB <- q^2
+  
+  vecOut <- signif(c(p=p, AA=fAA, AB=fAB, BB=fBB), digits=3)
+  return(vecOut)
+
+}
+
+###########################
+
+Hardyweinberg()
+pp <- 0.7
+Hardyweinberg(p=pp) #passing the variable down into the function
+Hardyweinberg(1.2) #runs just fine, but you can't have a p values > 1; 
+
+```
+
+####**Use multiple return() statements to generate different possible outcomes** 
+
+```{r}
+##########################
+#FUNCTION: HardyWeinberg2
+#input: p, allelic frequency (0,1)
+#output: p and three genotype frequencies (AA, AB, BB)
+#_________________________
+Hardyweinberg2 <- function(p=runif(1)) {
+  if(p >1.0 | p < 0.0) {
+    return("Function failure: p must be >= 0 and <= 1")
+  }
+  q <- 1 - p
+  fAA <- p^2
+  fAB <- 2*p*q
+  fBB <- q^2
+  
+  vecOut <- signif(c(p=p, AA=fAA, AB=fAB, BB=fBB), digits=3)
+  return(vecOut)
+
+}
+
+###########################
+Hardyweinberg2()
+Hardyweinberg2(0.5)
+Hardyweinberg2(1.2)
+z <- Hardyweinberg2(1.2) #this isn't good!
+```
+
+```{r}
+##########################
+#FUNCTION: HardyWeinberg3
+#input: p, allelic frequency (0,1)
+#output: p and three genotype frequencies (AA, AB, BB)
+#_________________________
+Hardyweinberg3 <- function(p=runif(1)) {
+  if(p >1.0 | p < 0.0) {
+    stop("Function failure: p must be >= 0 and <= 1") #stop distinct from return function; used for true error trapping 
+  }
+  q <- 1 - p
+  fAA <- p^2
+  fAB <- 2*p*q
+  fBB <- q^2
+  
+  vecOut <- signif(c(p=p, AA=fAA, AB=fAB, BB=fBB), digits=3)
+  return(vecOut)
+
+}
+
+###########################
+# Hardyweinberg3(1.2) gives error code! Can't run
+
+```
+####**Scoping in Functions**   
+* **Global variables:** not in functions, visible to all parts of the code, declared in main body of the text   
+* **Local envrionment variables:** within the function that defined them; visible only within the function or passed down through the function as a parameter 
+```{r}
+myFunc <- function(a=3, b=4) {
+  z <- a + b
+  return(z)
+}
+
+myFunc()
+# print(a) #a not found because it's only within the function; don't have access to the variable
+
+myFuncBad <- function(a=3) {
+  
+zz <- a + b
+return(zz)
+}
+#myFuncBad() #fails because b has not been defined locally (or globally)
+b <- 10
+myFuncBad() #now runs because b is found locally
+
+#best way to deal with functions is when they are sealed off (i.e. parameters are only within the local environment/ use global environment variables within the function 
+
+
+myFuncOK <- function(a=3) {
+  bb <- 100
+  z <- a + bb
+  return(z)
+}
+
+myFuncOK()
+
+```
+####**Simple linear regression**
+```{r}
+#######################
+#FUNCTION:  (use a verb for functions, nouns for variables)
+#fits a simple OLS regression
+#inputs: numeric vector of predictor (x) and response (y)
+#outputs: slope and p-value
+#______________________
+
+fitLinear <- function(x=runif(10), y=runif(10)){
+  myMod <- lm(y~x)
+  myOut <- c(slope=summary(myMod)$coefficients[2,1],
+             pValue=summary(myMod)$coefficients[2,4])
+  plot(x=x,y=y)
+  return(myOut)
+}
+fitLinear()
+```
+
+
+
+
