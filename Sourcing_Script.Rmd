@@ -1,0 +1,16 @@
+---
+title: "CompBio_Lecture_Notes_03092017"
+author: "Emily Mikucki"
+date: "March 9, 2017"
+output: html_document
+---
+
+```{r}
+#Program Body
+source("MyFunctions.R")
+GetData()
+CalculateStuff()
+SummarizeOutput()
+GraphResults()
+```
+

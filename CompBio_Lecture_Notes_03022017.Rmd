@@ -166,7 +166,7 @@ myFuncOK()
 ####**Simple linear regression**
 ```{r}
 #######################
-#FUNCTION:  (use a verb for functions, nouns for variables)
+#FUNCTION:  Fit Linear (use a verb for functions, nouns for variables)
 #fits a simple OLS regression
 #inputs: numeric vector of predictor (x) and response (y)
 #outputs: slope and p-value
@@ -180,8 +180,44 @@ fitLinear <- function(x=runif(10), y=runif(10)){
   return(myOut)
 }
 fitLinear()
+
 ```
 
+####**More complicated linear regression**
+```{r}
+#######################
+#FUNCTION:  Fit Linear 2(use a verb for functions, nouns for variables)
+#fits a simple OLS regression
+#inputs: numeric vector of predictor (x) and response (y)
+#outputs: slope and p-value
+#______________________
+
+fitLinear2 <- function(x=NULL, y=NULL){
+  if(is.null(x) & is.null(y)) {
+    x <- runif(20)
+    y <- 0.5 + 2*x + rnorm(n=20,mean=0,sd=0.2)
+  }
+  myMod <- lm(y~x)
+  myOut <- c(slope=summary(myMod)$coefficients[2,1],
+             pValue=summary(myMod)$coefficients[2,4])
+  plot(x=x,y=y)
+  return(myOut)
+}
+fitLinear2()
+```
+####**Passing a parameter list with do.call**
+```{r}
+z <- c(runif(99),NA)
+mean(z)
+mean(x=z, na.rm = TRUE)
+mean(x=z,na.rm=TRUE,trim = 0.05) #trim removes top and bottom 5%
+#can bundle all of these paramters into a single list
+parList <- list(x=z,na.rm=TRUE,trim=0.05)
+do.call(mean,parList)
+
+
+```
+####**Make a function template***
 
 
 

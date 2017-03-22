@@ -30,7 +30,8 @@ I am a second-year PhD student in Biology studying the physiological consequence
     + [Sample Data: Transform .csv to .Rmd](CompBio_Test_Data_02082017.html)
     + [Working with Regular Expressions](Regular_Expressions_HW4.html)
 * [Assignment 5](CompBio_Emily_Mikucki_HW5.html)
-* [Assignment 6](Mikucki_R_Functions_HW6.html)
+* [Assignment 6 & 7](Mikucki_R_Functions_HW6.html)
+* [Assignment 8](CompBio_HW8_Final.html)
     
 ##Notes:
 
@@ -47,6 +48,7 @@ I am a second-year PhD student in Biology studying the physiological consequence
 * [February 21, 2017: Subsetting in R](CompBio_Lecture_Notes_02212017.html)
 * [February 23 & 28, 2017: Probability Distributions](CompBio_Lecture_Notes_02232017.html)
 * [March 2, 2017: Working with R Functions](CompBio_Lecture_Notes_03022017.html)
+* [March 21, 2017: Brandon Ogbunu Guest Lecture](CompBio_LectureNotes_03212017.html)
 
 #### Lab
 * [January 18, 2017: Creating a Repository](Lab_Notes_01182017.html)

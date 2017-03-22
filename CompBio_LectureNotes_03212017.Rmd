@@ -1,0 +1,91 @@
+---
+title: "CompBio_LectureNotes_03212017"
+author: "Emily Mikucki"
+date: "3/21/2017"
+output: html_document
+---
+
+###**Guest Lecture: Brandon Ogbunu**   
+* Darwin's Dangerous Idea --> Dennett's Calculator (Wrongulator); doesn't mask ignaorance, is a means to unmasking ignorance   
+* Modelling = understanding the pieces that will help you understand the larger picture 
+
+####**Mathematical model**   
+* focuses on specific quantitative features of hte scenario, ignores others   
+* mathematical description of a scenario or situation from the real-world   
+* simplification, abstraction
+* involves hypotheses that can be tested against real data and refined if desired 
+* improved understanding of real-world scenario 
+
+####**Why study epidemic models?**   
+* supplement statistical extrapolations   
+* learn more about the qualitative dynamics of a disease   
+* test hypotheses about (for example) prevention strategies, disease transmission, significant charactersitics, etc.   
+
+####**Different kinds of models:**  
+* deterministic   
+* discrete-time   
+* stochastic   
+* individual-based model (negative: if population is large you get "average" anyways...)   
+* network models   
+
+####**SIR epidemic model**    
+* consider a disease spread by contact with infected individuals   
+* define rate of change (susceptible, infected, recovered...)   
+
+####**Ordinary differential equations**   
+* pedator prey models   
+
+####**Basic differential equation model in R**   
+* Use EpiModel   
+
+####Basic SI Model: Starting with a basic Susceptible-Infected (SI) disease model in which there is random mixing within the population
+```{r}
+#install.packages("EpiModel", dependencies = TRUE)
+library(EpiModel)
+param <- param.dcm(inf.prob = 0.2, act.rate = 0.25)
+init <- init.dcm(s.num = 500, i.num = 1) #sets the transmission probability per act
+control <- control.dcm(type = "SI", nsteps = 500) #collects other structural model controls like the model type and number of time steps for the simulation
+
+mod <- dcm(param, init, control)
+mod
+plot(mod)
+summary(mod, at = 150) #Determines num susceptible and num infected @ time 150 
+```
+
+####SIR Model with Demography: In a Susceptible-Infectious-Recovered (SIR) model, infected individuals transition from disease into a life-long recovered state in which they are never again susceptible
+
+```{r}
+#parameters for the recovery rate, birth rate, and state-specific death rates are entered
+param <- param.dcm(inf.prob = 0.2, act.rate = 1, rec.rate = 1/20,
+                   b.rate = 1/95, ds.rate = 1/100, di.rate = 1/80, dr.rate = 1/100)
+init <- init.dcm(s.num = 1000, i.num = 1, r.num = 0) #specify the number of initially recovered
+control <- control.dcm(type = "SIR", nsteps = 500, dt = 0.5) #obtain model results in fractional time units
+mod <- dcm(param, init, control)
+
+par(mar = c(3.2, 3, 2, 1), mgp = c(2, 1, 0), mfrow = c(1, 2)) #used to change some default graphical options
+plot(mod, popfrac = FALSE, alpha = 0.5,
+     lwd = 4, main = "Compartment Sizes")
+plot(mod, y = "si.flow", lwd = 4, col = "firebrick",
+     main = "Disease Incidence", leg = "n") #This is really cool! Plot the prevalences for all compartments in the model, but in the right plot we override that using the y argument to specify that disease incidence
+
+par(mfrow = c(1, 1))
+comp_plot(mod, at = 50, digits = 1) #The plot shows the three state sizes and flows at t50t50.
+```
+
+####Change the Parameters of SIR Model with Demography : 
+
+```{r}
+param <- param.dcm(inf.prob = 0.5, act.rate = 1, rec.rate = 5/20,
+                   b.rate = 5/95, ds.rate = 5/100, di.rate = 5/80, dr.rate = 5/100)
+init <- init.dcm(s.num = 1000, i.num = 1, r.num = 0)
+control <- control.dcm(type = "SIR", nsteps = 500, dt = 0.5)
+ mod <- dcm(param, init, control)
+mod
+plot(mod)
+summary(mod, at = 150)
+par(mar = c(3.2, 3, 2, 1), mgp = c(2, 1, 0), mfrow = c(1, 2)) #used to change some default graphical options
+plot(mod, popfrac = FALSE, alpha = 0.5,
+     lwd = 4, main = "Compartment Sizes")
+plot(mod, y = "si.flow", lwd = 4, col = "firebrick",
+     main = "Disease Incidence", leg = "n")
+```

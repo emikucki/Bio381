@@ -1,0 +1,193 @@
+---
+title: "CompBio_HW8_Final"
+author: "Emily Mikucki"
+date: "March 8, 2017"
+output: html_document
+---
+**1. Linear Regression**
+```{r}
+
+# FUNCTION: Linear Regression (output only)
+# fits simple regression line
+# inputs: numeric vector of predictor (x) and response (y)
+# outputs: slope and p-value
+#------------------------------------------------- 
+
+fitLinearReg <- function(x=runif(20),y=1:20) {
+  dataFrame <- data.frame(x,y)
+  myMod <- lm(y~x) 
+  myOut <- c(slope=summary(myMod)$coefficients[2,1],
+             pValue=summary(myMod)$coefficients[2,4],
+             tvalue=summary(myMod)$coefficients[2,3],
+             standarderror=summary(myMod)$coefficients[2,2],
+             RSquared=summary(myMod)$adj.r.squared)
+  return(myOut)
+
+}
+
+#Run the function with the defaults
+fitLinearReg()
+
+#Run the function with fake data 
+data <- matrix(c(1:10), nrow = 5, ncol = 2)
+#dataLR <- data.frame(data)
+fitLinearReg(x=data[,1], y=data[,2])
+```
+
+```{r}
+# FUNCTION: Linear Regression (plot only)
+# fits simple regression line to plot of x and y 
+# inputs: numeric vector of predictor (x) and response (y)
+# outputs: regression line 
+#______________________________________
+fitLinearRegPlot <- function(x=runif(20),y=1:20) {
+  dataFrame <- data.frame(x,y)
+  regMod <- lm(y~x, data = dataFrame)
+  myMod <- lm(y~x) 
+  #Rsquared <- c("R-sq=", round(summary
+  myOut <- c(plot(x=x,y=y,pch=21, bg="magenta", cex=1.5, main="Linear Regression Example Data", xlab="Height (inches)", ylab="Weight (grams)"), 
+           abline(regMod))
+  return(myOut)
+}
+#Run the function with the defaults
+fitLinearRegPlot()
+#Run the function with fake data 
+fitLinearRegPlot(x=data[,1], y=data[,2])
+```
+
+**2. ANOVA**
+```{r}
+# FUNCTION: ANOVA (output only)
+# computes analysis of variance 
+# inputs: numeric vector of predictor (x) and response (y)
+# outputs: p-value
+#------------------------------------------------- 
+
+AoVar1 <- function(x=as.factor(rep(c("Control", "Low Temp", "High Temp"),each=5)), y=runif(15)){
+  dataFrame <- data.frame(x,y)
+  myMod <- aov(y~x, data=dataFrame)
+  myOut <- summary(myMod)
+  return(myOut)
+}
+#Run the function with the defaults
+AoVar1()
+#Run the function with fake data
+x <- as.factor(rep(c("Control", "Low Temp", "High Temp"),each=10))
+y <- runif(30)
+dataaov <- data.frame(x,y)
+AoVar1(dataaov)
+```
+
+```{r}
+# FUNCTION: ANOVA (plot only)
+# computes analysis of variance / give box plot
+# inputs: numeric vector of predictor (x) and response (y)
+# outputs: p-value
+#------------------------------------------------- 
+AoVar1plot <- function(x=as.factor(rep(c("Control", "Low Temp", "High Temp"),each=5)), y=runif(15)){
+  dataFrame <- data.frame(x,y)
+  #myMod <- aov(y~x, data=dataFrame)
+  myOut <- boxplot(y~x, data=dataFrame, col=c("green3", "blue4", "purple3"), main="ANOVA Example Data", xlab="Treatment", ylab="Change in Weight (grams)")
+  return(myOut)
+}
+#Run the function with defaults
+AoVar1plot()
+#Run the function with fake data 
+AoVar1plot(dataaov)
+```
+**3. Contingency Table**
+
+```{r}
+# FUNCTION: Contingency Table Analysis (output only)
+# computes a table of variable/ results for chi-sq analysis 
+# inputs: 2 discrete variables x and y
+# outputs: chi-sq value 
+#-------------------------------------------------
+
+conttab <- function(x=sample(1:100, 3), y=sample(1:100, 3)){
+  dataMatrix <- rbind(x,y)
+  rownames(dataMatrix) <- c("High Temp", "Low Temp")
+  colnames(dataMatrix) <- c("P. rapae", "V. atalanta", "D. plexippus")
+myMod <- chisq.test(dataMatrix)
+return(print(myMod))
+}
+#Run the function with the defaults
+conttab()
+
+#Run the function with fake data 
+x1 <- c(12, 3, 6) 
+y1 <- c(78,209,1000)
+data3 <- rbind(x1,y1)
+conttab(x=data3[1,], y=data3[2,])
+```
+
+```{r}
+# FUNCTION: Contingency Table Analysis (plot only)
+# computes a table of variable/ results for chi-sq analysis 
+# inputs: 2 discrete variables x and y
+# outputs: chi-sq value 
+#-------------------------------------------------
+conttab <- function(x=sample(1:100, 3), y=sample(1:100, 3)){
+  dataMatrix <- rbind(x,y)
+  rownames(dataMatrix) <- c("High Temp", "Low Temp")
+  colnames(dataMatrix) <- c("P. rapae", "V. atalanta", "D. plexippus")
+myMod <- chisq.test(dataMatrix)
+myOut <- mosaicplot(x=dataMatrix, col=c("cyan", "dark magenta", "deepskyblue4"), shade=FALSE, main= "Contingency Table Example Data")
+return(myOut)
+}
+#Run the function with the defaults
+conttab()
+
+#Run the function with fake data
+conttab(x=data3[1,], y=data3[2,])
+```
+
+**4. Logistic Regression**
+```{r}
+# FUNCTION: Logistic Regression (output only)
+# explains the relationship between one dependent binary variable and one or more nominal, ordinal, interval or ratio-level independent variables
+# inputs: x = continuous variable and y = categorical/discrete variable
+# outputs: slope, p-value, deviance residuals, etc. 
+#-------------------------------------------------
+logisticreg <- function(x=rgamma(n=50,shape=5,scale=5), y=rbinom(n=50,size=1,p=0.5)) {
+  dataFrame <- data.frame(x,y)
+  myMod <- glm(y ~ x, data=dataFrame, family=binomial(link="logit"))
+return(summary(myMod))
+}
+#run the function with the defaults 
+logisticreg()
+
+#run the function with fake data 
+x2 <- rgamma(n=1000, shape=1, scale=5)
+y2 <- rbinom(n=1000, size=1, p=0.5)
+logisticreg(x=x2,y=y2)
+```
+
+```{r}
+# FUNCTION: Logistic Regression (plot only)
+# explains the relationship between one dependent binary variable and one or more nominal, ordinal, interval or ratio-level independent variables
+# inputs: dataFrame$x = continuous variable and datafram$y = categorical/discrete variable
+# outputs: logistic regression
+#-------------------------------------------------
+logisticregplot <- function(x=rgamma(n=50,shape=5,scale=5), y=rbinom(n=50,size=1,p=0.5)) {
+  dataFrame <- data.frame(x,y)
+  myMod <- glm(y ~ x, data=dataFrame, family=binomial(link="logit"))
+myOut <- plot(x=dataFrame$x, y=dataFrame$y, pch=21, bg="turquoise3", cex=2.5, main="Logistic Regression Example Data", ylab="Probability of Presence", xlab="Latitude")
+#curve(predict(myMod, data.frame(x=x, type="response"), add=TRUE, lwd=2)
+  return(myOut)
+}
+#run the function with the defaults 
+logisticregplot()
+
+#run the function with fake data 
+x2 <- rgamma(n=1000, shape=1, scale=5)
+y2 <- rbinom(n=1000, size=1, p=0.5)
+logisticregplot(x=x2,y=y2)
+```
+```
+
+
+
+
+
+
