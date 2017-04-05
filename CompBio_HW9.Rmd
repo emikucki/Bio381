@@ -1,0 +1,111 @@
+---
+title: "CompBio_HW9"
+author: "Emily Mikucki"
+date: "March 22, 2017"
+output: html_document
+---
+
+```{r}
+pupaldata <-read.table("CompBio_Data_Set.csv",header = T,sep=",")
+#pupaldata
+pupaldata$TempFactor<-factor(pupaldata$Temperature, levels=c("22","25","12:32"))
+data1 <- cbind.data.frame(pupaldata$TempFactor, pupaldata$Change_Weight)
+AoVar1 <- function (data=data1) {
+  x <- data[,1]
+  y <- data1[,2]
+  dataFrame <- data.frame(x,y)
+  myMod <- aov(y~x, data=dataFrame)
+  myOut <- summary(myMod)
+  return(myOut)
+}
+AoVar1()
+
+AoVar1 <- function (data=data1) {
+  x <- data[,1]
+  y<- data[,2]
+  #myMod <- aov(y~x, data=data)
+  myOut <- boxplot(y~x, data=data, col=c("green3", "blue4", "purple3"), main="Change in Pupal Weight Data", xlab=" Temperature Treatment", ylab="Change in Weight (grams)")
+  return(myOut)
+}
+#Using my actual data
+AoVar1(data1)
+
+#rnorm(20, mean=0.007701, sd=0.01530829)
+
+#Using fake (but similar) data 
+twentytwo<-subset(pupaldata, pupaldata$Temperature=="22")
+summary(twentytwo$Change_Weight)
+sd(twentytwo$Change_Weight)
+hist(twentytwo$Change_Weight)
+
+twentyfive <- subset(pupaldata, pupaldata$Temperature=="25")
+summary(twentyfive$Change_Weight)
+sd(twentyfive$Change_Weight)
+hist(twentyfive$Change_Weight)
+
+variedT <- subset(pupaldata, pupaldata$Temperature=="12:32")
+summary(variedT$Change_Weight)
+sd(variedT$Change_Weight)
+hist(variedT$Change_Weight)
+
+#simulate random data 
+par(mfrow=c(2,1))
+hist(pupaldata$Change_Weight) #all of my data 
+#hist(rgamma(n=30,shape=0.1,scale=2))
+hist(rgamma(n=30,shape=0.1,scale=0.08))
+myVec <-rgamma(n=30,shape=0.1,scale=0.08)
+print(myVec)
+length(myVec)
+
+treatment <- rep(c("22", "25", "12:32"), 10)
+mirrordata<- cbind(factor(treatment, levels=c("22","25","12:32")), myVec)
+par(mfrow=c(1,1))
+AoVar1(data1)
+AoVar1(mirrordata) #Using fake ideal data 
+
+#Under ideal/expected conditions, I would predict that individuals exposed to the hottest temperature (25°C) would have the largest change in pupal weight, and individuals in the variable treatment (12°C-32°C) would have the samllest change in weight. 
+
+testdata22 <- (runif(10, min = 0.03, max = 0.05))
+testdata25 <- (runif(10, min = 0.07, max = 0.09))
+testdataV <-  (runif(10, min = 0.01, max = 0.03))
+testdata <- c(testdata22, testdata25, testdataV)
+testdata
+
+par(mfrow=c(2,1))
+hist(pupaldata$Change_Weight) #all of the data 
+hist(testdata)
+myVec <- testdata
+treatment <- c(rep("22", 10), rep("25", 10), rep("12:32", 10))
+treatment
+idealdata<- cbind(factor(treatment, levels=c("22","25","12:32")), myVec)
+par(mfrow=c(1,1))
+AoVar1(data1)
+AoVar1(idealdata)
+
+```
+
+####Doing the same but for logistical regression
+
+```{r}
+logisticregplot <- function(x=rgamma(n=50,shape=5,scale=5), y=rbinom(n=50,size=1,p=0.5)) {
+  dataFrame <- data.frame(x,y)
+  myMod <- glm(y ~ x, data=dataFrame, family=binomial(link="logit"))
+myOut <- plot(x=dataFrame$x, y=dataFrame$y, pch=21, bg="turquoise3", cex=2.5, main="Logistic Regression Example Data", ylab="Temperature (°C)", xlab="Change in Weight (g)")
+#curve(predict(myMod, data.frame(x=x, type="response"), add=TRUE, lwd=2)
+  return(myOut)
+}
+par(mfrow=c(1,1))
+logisticregplot()
+#Run the function on my original data 
+
+twenty5<-subset(pupaldata, pupaldata$Temperature== "25")
+variableT <- subset(pupaldata, pupaldata$Temperature== "12:32")
+twocat <- rbind(twenty5, variableT)
+twocat
+logisticregplot(y=as.factor(twocat$Temperature),x=as.numeric(twocat$Change_Weight))
+#logisticregplot(y=
+
+
+
+```
+

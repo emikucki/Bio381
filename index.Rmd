@@ -32,6 +32,7 @@ I am a second-year PhD student in Biology studying the physiological consequence
 * [Assignment 5](CompBio_Emily_Mikucki_HW5.html)
 * [Assignment 6 & 7](Mikucki_R_Functions_HW6.html)
 * [Assignment 8](CompBio_HW8_Final.html)
+* [Assignment 9](CompBio_HW9.html)
     
 ##Notes:
 
