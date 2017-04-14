@@ -33,6 +33,7 @@ I am a second-year PhD student in Biology studying the physiological consequence
 * [Assignment 6 & 7](Mikucki_R_Functions_HW6.html)
 * [Assignment 8](CompBio_HW8_Final.html)
 * [Assignment 9](CompBio_HW9.html)
+* [Assignment 10](CompBio_HW10.html)
     
 ##Notes:
 
@@ -52,9 +53,14 @@ I am a second-year PhD student in Biology studying the physiological consequence
 * [March 9-28, 2017: Illustration of structured programming](CompBio_Lecture_Notes_03092017.html)
 * [March 21, 2017: Brandon Ogbunu Guest Lecture](CompBio_LectureNotes_03212017.html)
 * [March 28, 2017: Control Structures for R Programming](CompBio_Lecture_Notes_03282017.html)
+* [March 30, 1017: For Loops](CompBio_Lecture_Notes_03302017.html)
+* [April 6, 2017: More For Loops](More_For_Loops_04062017.html)
+* [April 11, 2017: Randomization Tests](Randomization_Tests.html)
+* [April 13, 2017: Markov Models](Markov_Models.html)
 
 #### Lab
 * [January 18, 2017: Creating a Repository](Lab_Notes_01182017.html)
+* [April 12, 2017: Spatial Analysis](CompBio_Lecture_Notes_04122017.html)
 
 ## Demos:
 * [January 24, 2017: RMarkdown Demo (Updated 01/26/2017)](Markdown_Demo.html)
