@@ -120,7 +120,7 @@ ecol.death.sim()
 * Buffon's needle simulation; geometrical probability (buffon.needle)   
 * Brownian motion simulation (brownian.motion)   
 * Word count of a speech by President Obama (ObamaSpeech)   
-* Word counts of a speech by the Chinese President Hu (HuSpeech)   
+* Word count of a speech by the Chinese President Hu (HuSpeech)   
 * Geometric features of pollen grains (pollen)   
 * Demonstrate stock prices in animations (price.ani)   
 
@@ -213,11 +213,11 @@ saveHTML({
     ani.width = 600, title = "Normal Distribution", 
     description = c("This animation plots the density functions of 150 draws of 100 values from a normally distributed random variable.") )
 ```
-####Other uses of the animation package (external links)   
+###Other uses of the animation package (external links)   
 [R Animation Package PDF](animation_R_Package.pdf)   
 [Journal of Statistical Software](v53i01.pdf)
 
-####Limitations of the animation package   
+###Limitations of the animation package   
 * Requires third-party software for most export formats   
 * Not particularly straightforward for animating personal data   
 * Weird formatting within RMarkdown   

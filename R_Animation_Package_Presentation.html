@@ -233,7 +233,7 @@ ecol.death.sim()</code></pre>
 </li>
 <li>Word count of a speech by President Obama (ObamaSpeech)<br />
 </li>
-<li>Word counts of a speech by the Chinese President Hu (HuSpeech)<br />
+<li>Word count of a speech by the Chinese President Hu (HuSpeech)<br />
 </li>
 <li>Geometric features of pollen grains (pollen)<br />
 </li>
@@ -279,20 +279,19 @@ for (i in 1:5) {
   return(n)
 } #end of function
 head(RanWalk())</code></pre>
-<pre><code>## Population extinction at time 73</code></pre>
-<pre><code>## [1] 50.00000 45.91022 42.49207 59.31996 85.94546 84.88810</code></pre>
+<pre><code>## Population extinction at time 18</code></pre>
+<pre><code>## [1] 50.00000 46.41253 59.56896 43.73455 19.53172 16.08674</code></pre>
 <pre class="r"><code>saveHTML({
   for (i in 1:10) {
     plot(RanWalk(), type=&quot;o&quot;)
     ani.pause()
   }
 }, htmlfile = &quot;RanWalk.html&quot;, img.name = &quot;RanWalk.plot&quot;, description = &quot;Animation of stochastic random walks (model population growth)&quot;)</code></pre>
-<pre><code>## Population extinction at time 20</code></pre>
-<pre><code>## Population extinction at time 6</code></pre>
+<pre><code>## Population extinction at time 7</code></pre>
 <pre><code>## Population extinction at time 5</code></pre>
 <pre><code>## Population extinction at time 35</code></pre>
-<pre><code>## Population extinction at time 6</code></pre>
-<pre><code>## Population extinction at time 79</code></pre>
+<pre><code>## Population extinction at time 9</code></pre>
+<pre><code>## Population extinction at time 31</code></pre>
 <pre><code>## HTML file created at: RanWalk.html</code></pre>
 </div>
 <div id="more-complicated-animation-not-using-preset-animation-function" class="section level3">
@@ -336,13 +335,14 @@ saveHTML({
     ani.width = 600, title = &quot;Normal Distribution&quot;, 
     description = c(&quot;This animation plots the density functions of 150 draws of 100 values from a normally distributed random variable.&quot;) )</code></pre>
 <pre><code>## HTML file created at: normal.dist.html</code></pre>
-<div id="other-uses-of-the-animation-package-external-links" class="section level4">
-<h4>Other uses of the animation package (external links)</h4>
+</div>
+<div id="other-uses-of-the-animation-package-external-links" class="section level3">
+<h3>Other uses of the animation package (external links)</h3>
 <p><a href="animation_R_Package.pdf">R Animation Package PDF</a><br />
 <a href="v53i01.pdf">Journal of Statistical Software</a></p>
 </div>
-<div id="limitations-of-the-animation-package" class="section level4">
-<h4>Limitations of the animation package</h4>
+<div id="limitations-of-the-animation-package" class="section level3">
+<h3>Limitations of the animation package</h3>
 <ul>
 <li>Requires third-party software for most export formats<br />
 </li>
@@ -352,7 +352,6 @@ saveHTML({
 </li>
 <li>Glitches in the animations</li>
 </ul>
-</div>
 </div>
 
 
