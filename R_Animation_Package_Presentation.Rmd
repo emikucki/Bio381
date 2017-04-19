@@ -141,7 +141,7 @@ ani.options(oopt)
 ```
 [Output](simple.plot.html)
 
-###Animation of the RanWalk Function
+###Animation of the RanWalk function
 ```{r}
 RanWalk <- function(times=100, 
                     n1=50,
