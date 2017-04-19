@@ -8,7 +8,7 @@ output: html_document
 The animation package has two main purposes:   
 * 1. It provides functions for animations in statistics (mathematical, multivariate, non-parametric, computational), probability theory, sampling surveys, linear models, time series, and data mining.   
 * 2. It also provides functions to save animations to various formats including GIFs, HTML pages, PDFs, and videos.   
-* 3. However, for GIFS and videos you need to download the third party software "ImageMagick" which is not very user friendly....   
+  * However, for GIFS and videos you need to download the third party software "ImageMagick" which is not very user friendly....   
 
 ###Required packages and libraries
 ```{r}

@@ -127,7 +127,7 @@ $(document).ready(function () {
 <p>The animation package has two main purposes:<br />
 * 1. It provides functions for animations in statistics (mathematical, multivariate, non-parametric, computational), probability theory, sampling surveys, linear models, time series, and data mining.<br />
 * 2. It also provides functions to save animations to various formats including GIFs, HTML pages, PDFs, and videos.<br />
-* 3. However, for GIFS and videos you need to download the third party software “ImageMagick” which is not very user friendly….</p>
+* However, for GIFS and videos you need to download the third party software “ImageMagick” which is not very user friendly….</p>
 </div>
 <div id="required-packages-and-libraries" class="section level3">
 <h3>Required packages and libraries</h3>
@@ -279,19 +279,18 @@ for (i in 1:5) {
   return(n)
 } #end of function
 head(RanWalk())</code></pre>
-<pre><code>## Population extinction at time 18</code></pre>
-<pre><code>## [1] 50.00000 46.41253 59.56896 43.73455 19.53172 16.08674</code></pre>
+<pre><code>## [1] 50.00000 49.08322 38.85317 44.25807 52.27002 61.02794</code></pre>
 <pre class="r"><code>saveHTML({
   for (i in 1:10) {
     plot(RanWalk(), type=&quot;o&quot;)
     ani.pause()
   }
 }, htmlfile = &quot;RanWalk.html&quot;, img.name = &quot;RanWalk.plot&quot;, description = &quot;Animation of stochastic random walks (model population growth)&quot;)</code></pre>
-<pre><code>## Population extinction at time 7</code></pre>
-<pre><code>## Population extinction at time 5</code></pre>
-<pre><code>## Population extinction at time 35</code></pre>
-<pre><code>## Population extinction at time 9</code></pre>
-<pre><code>## Population extinction at time 31</code></pre>
+<pre><code>## Population extinction at time 18</code></pre>
+<pre><code>## Population extinction at time 24</code></pre>
+<pre><code>## Population extinction at time 51</code></pre>
+<pre><code>## Population extinction at time 20</code></pre>
+<pre><code>## Population extinction at time 20</code></pre>
 <pre><code>## HTML file created at: RanWalk.html</code></pre>
 </div>
 <div id="more-complicated-animation-not-using-preset-animation-function" class="section level3">
