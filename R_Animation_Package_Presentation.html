@@ -240,8 +240,8 @@ ecol.death.sim()</code></pre>
 <li>Demonstrate stock prices in animations (price.ani)</li>
 </ul>
 </div>
-<div id="simple-animations-not-using-preset-animation-functions" class="section level3">
-<h3>Simple animations not using preset ‘animation’ functions</h3>
+<div id="simple-animation-not-using-preset-animation-functions" class="section level3">
+<h3>Simple animation not using preset ‘animation’ functions</h3>
 <pre class="r"><code>oopt = ani.options(interval = 1.5)
 saveHTML({
 for (i in 1:5) {
@@ -254,20 +254,46 @@ for (i in 1:5) {
 
 #This could be useful especially if you have different replicates of the same graph! 
 
-saveHTML ({
-  ani.options(interval = 0.2, nmax =50)
-  t=seq(0,pi,0.01)
-  x = cos(2*t)
-  y=sin(2*t)
-  idx = seq(1,length(x),10)
-  for (i in seq_along(idx)) {
-    plot(x,y,type='n')
-    points(x[seq(idx[i])], y[seq(idx[i])], pch=15, col = &quot;dark green&quot;)
+#What graphs do we have replicates of where it might be useful to look at an animation of all of the plots... The RanWalk function! </code></pre>
+<p><a href="simple.plot.html">Output</a></p>
+</div>
+<div id="animation-of-the-ranwalk-function" class="section level3">
+<h3>Animation of the RanWalk Function</h3>
+<pre class="r"><code>RanWalk &lt;- function(times=100, 
+                    n1=50,
+                    lambda=1.001, 
+                    noiseSD=10) {
+  n &lt;- rep(NA, times)
+  n[1] &lt;- n1
+  noise &lt;- rnorm(n=times, mean=0, sd=noiseSD)
+  
+  for (i in 1:(times-1)) {
+    n[i + 1] &lt;- lambda*n[i] + noise[i] #would write in a manusript as n(t+1) = lambda(nt) + e
+    if(n[i + 1] &lt;= 0){
+      n[i+ 1] &lt;- NA
+      cat(&quot;Population extinction at time&quot;, 
+          i-1, &quot;\n&quot;)
+      #tkbell()
+      break} #end of conditional statement
+  } #end of for loop
+  return(n)
+} #end of function
+head(RanWalk())</code></pre>
+<pre><code>## Population extinction at time 73</code></pre>
+<pre><code>## [1] 50.00000 45.91022 42.49207 59.31996 85.94546 84.88810</code></pre>
+<pre class="r"><code>saveHTML({
+  for (i in 1:10) {
+    plot(RanWalk(), type=&quot;o&quot;)
     ani.pause()
   }
-}, htmlfile = &quot;cos_sin.html&quot;, ani.width = 600, ani.height = 600)</code></pre>
-<pre><code>## HTML file created at: cos_sin.html</code></pre>
-<p><a href="simple.plot.html">Output</a></p>
+}, htmlfile = &quot;RanWalk.html&quot;, img.name = &quot;RanWalk.plot&quot;, description = &quot;Animation of stochastic random walks (model population growth)&quot;)</code></pre>
+<pre><code>## Population extinction at time 20</code></pre>
+<pre><code>## Population extinction at time 6</code></pre>
+<pre><code>## Population extinction at time 5</code></pre>
+<pre><code>## Population extinction at time 35</code></pre>
+<pre><code>## Population extinction at time 6</code></pre>
+<pre><code>## Population extinction at time 79</code></pre>
+<pre><code>## HTML file created at: RanWalk.html</code></pre>
 </div>
 <div id="more-complicated-animation-not-using-preset-animation-function" class="section level3">
 <h3>More complicated animation not using preset ‘animation’ function</h3>
