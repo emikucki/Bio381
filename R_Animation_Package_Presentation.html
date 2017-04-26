@@ -144,7 +144,7 @@ library(animation)</code></pre>
 
 #ani.width &amp; ani.height = width and height of the image frames (unit in pixels) typically for png, jpeg; default is 480; units might differ between exporting formats
 
-#ani.pause =  it will pause for a time interval  (specified in ani.options('interval')) </code></pre>
+#ani.pause = it will pause for a time interval (specified in ani.options('interval')) </code></pre>
 </div>
 <div id="simulating-coin-tosses" class="section level3">
 <h3>Simulating coin tosses</h3>
@@ -152,11 +152,9 @@ library(animation)</code></pre>
 #quartz()
 flip.coin(faces = 2, prob = NULL, border = &quot;white&quot;, grid = &quot;white&quot;, col = 1:2,
           type = &quot;p&quot;, pch = 21, bg = &quot;transparent&quot;, digits = 3) </code></pre>
-<p><a href="flip.coin1.html">Output</a></p>
 <pre class="r"><code>#2-faced coin with unequal probability (0.9/0.1).
 flip.coin(faces = 2, prob = c(0.9, 0.1), border = &quot;white&quot;, grid = &quot;white&quot;, col = 1:2,
           type = &quot;p&quot;, pch = 21, bg = &quot;transparent&quot;, digits = 3) </code></pre>
-<p><a href="flip.coin2.html">Output</a></p>
 <pre class="r"><code>#Coin with 3 potential outcomes
 oopt = ani.options(interval = 0.3, nmax = ifelse(interactive(), #if else(interactive() meaning assumed human operator
     50, 2))
@@ -233,7 +231,7 @@ ecol.death.sim()</code></pre>
 </li>
 <li>Word count of a speech by President Obama (ObamaSpeech)<br />
 </li>
-<li>Word count of a speech by the Chinese President Hu (HuSpeech)<br />
+<li>Word count of a speech by Chinese President Hu (HuSpeech)<br />
 </li>
 <li>Geometric features of pollen grains (pollen)<br />
 </li>
@@ -258,7 +256,7 @@ for (i in 1:5) {
 <p><a href="simple.plot.html">Output</a></p>
 </div>
 <div id="animation-of-the-ranwalk-function" class="section level3">
-<h3>Animation of the RanWalk function</h3>
+<h3>Animation of the RanWalk Function</h3>
 <pre class="r"><code>RanWalk &lt;- function(times=100, 
                     n1=50,
                     lambda=1.001, 
@@ -279,25 +277,25 @@ for (i in 1:5) {
   return(n)
 } #end of function
 head(RanWalk())</code></pre>
-<pre><code>## [1] 50.00000 44.37199 53.45268 40.37411 42.71375 40.55076</code></pre>
+<pre><code>## [1] 50.00000 30.91826 40.90250 43.67661 39.89196 36.55936</code></pre>
 <pre class="r"><code>saveHTML({
   for (i in 1:10) {
     plot(RanWalk(), type=&quot;o&quot;)
     ani.pause()
   }
 }, htmlfile = &quot;RanWalk.html&quot;, img.name = &quot;RanWalk.plot&quot;, description = &quot;Animation of stochastic random walks (model population growth)&quot;)</code></pre>
-<pre><code>## Population extinction at time 28</code></pre>
-<pre><code>## Population extinction at time 14</code></pre>
-<pre><code>## Population extinction at time 33</code></pre>
-<pre><code>## Population extinction at time 22</code></pre>
-<pre><code>## Population extinction at time 11</code></pre>
-<pre><code>## Population extinction at time 79</code></pre>
-<pre><code>## Population extinction at time 9</code></pre>
+<pre><code>## Population extinction at time 74</code></pre>
+<pre><code>## Population extinction at time 78</code></pre>
 <pre><code>## Population extinction at time 10</code></pre>
+<pre><code>## Population extinction at time 4</code></pre>
+<pre><code>## Population extinction at time 23</code></pre>
+<pre><code>## Population extinction at time 19</code></pre>
+<pre><code>## Population extinction at time 24</code></pre>
+<pre><code>## Population extinction at time 83</code></pre>
 <pre><code>## HTML file created at: RanWalk.html</code></pre>
 </div>
-<div id="more-complicated-animation-not-using-preset-animation-function" class="section level3">
-<h3>More complicated animation not using preset ‘animation’ function</h3>
+<div id="more-complicated-animation-not-using-preset-animation-functions" class="section level3">
+<h3>More complicated animation not using preset ‘animation’ functions</h3>
 <pre class="r"><code>#For this example expand your plot window!
 #This animation plots the density functions of 150 draws of 100 values from a normally distributed random variable
 #Set delay between frames when replaying

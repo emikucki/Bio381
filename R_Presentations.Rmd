@@ -1,0 +1,327 @@
+---
+title: "R Presentations"
+author: ""
+date: ""
+output: html_document
+---
+
+### R presentations day 1
+```{r}
+#April:
+source("https://bioconductor.org/biocLite.R") #high-throughput genomic data capabilities
+biocLite("SNPRelate")
+library(SNPRelate)
+library(gdsfmt)
+
+# Read in the VCF (Variant Call Format) file, a common file structure for single nucleotide polymorphism, or "SNP", data
+OASV2rmdupvcf <- ("OASV2-rmdup-Bio381-filtered.recode.vcf")
+
+#(2) Reformatting the VCF file into SNPRelate’s native “Genomic Data Structure (gds)”
+# Reformatting to GDS considering a 2-allele only model (standard)
+snpgdsVCF2GDS(OASV2rmdupvcf, "OASV2gds", method="biallelic.only") 
+
+# Ignore the warning above, it is just because it didn't like how I parsed out some of the SNP data because I didn't want to share all of my dataset and using the whole dataset takes longer to run. Not necessary for this example.
+
+# Open the reformatted file and name it
+OASV2gds <- snpgdsOpen("OASV2gds")
+
+# Get a summary of the dataset
+snpgdsSummary("OASV2gds")
+
+#Running PCA on all SNPs and all individual samples
+pca <- snpgdsPCA(OASV2gds, autosome.only=FALSE, num.thread=4)
+
+# Create a vector of population IDs for being able to identify via color coding in the plot
+# NOTE: Need to make sure these IDs match the order as in the original vcf file
+popcode <- c("D1_7.5", "D1_7.5", "D1_7.5", "D1_7.5", "D1_8.0", "D1_8.0", "D1_8.0", "D1_8.0", "D7_7.5", "D7_7.5", "D7_7.5", "D7_7.5", "D7_8.0", "D7_8.0", "D7_8.0", "D7_8.0")
+
+# Getting strucutre of PCA, which provides info on the PCs
+str(pca)
+
+#Create a biplot of the first 2 PCA axes & color code according to population
+plot(pca$eigenvect[,1],pca$eigenvect[,2], main="PCA with quality filtered SNPs", cex.main=2, xlab="Principal Component axis 1", cex.lab=1.5, cex.axis=1.5, ylab="Principal Component axis 2", col=as.factor(popcode), pch=20, cex=3)
+legend("bottomleft", cex=1.3, legend=levels(as.factor(popcode)), pch=20, col=1:nlevels(as.factor(popcode)))
+
+# Notice that the legend is in the way of some of the points. Can correct this by moving it:
+plot(pca$eigenvect[,1],pca$eigenvect[,2], main="PCA with quality filtered SNPs #2", cex.main=2, xlab="Principal Component axis 1", cex.lab=1.3, cex.axis=1.5, ylab="Principal Component axis 2", col=as.factor(popcode), pch=20, cex=3)
+legend("topleft", cex=1.3, legend=levels(as.factor(popcode)), pch=20, col=1:nlevels(as.factor(popcode)))
+
+#Considering Linkage Disequilibrium (LD)
+#It’s worth considering how inference of population structure via 
+#PCA might be sensitive to your choice of SNPs 
+#(e.g., Linkage Disequilibrium, or ‘LD’). You can filter for SNPs 
+#that are not in high LD with others, and then re-run the PCA and plot.
+
+# This prunes any SNPs with an r^2 > 0.2 between adjacent SNPs
+snpset <- snpgdsLDpruning(OASV2gds, autosome.only=FALSE, ld.threshold=0.2)
+snpset.id <- unlist(snpset)
+
+# Now we run PCA again on the pruned data with no LD and plot (user-defined LD threshold):
+pca_noLD <- snpgdsPCA(OASV2gds, snp.id=snpset.id, autosome.only=FALSE, num.thread=4)
+plot(pca_noLD$eigenvect[,1],-1*(pca_noLD$eigenvect[,2]), main="PCA with no SNPs in LD", xlab="Principal Component axis 1", cex.lab=1.5, cex.axis=1.5, ylab="Principal Component axis 2", col=as.factor(popcode), pch=20, cex=3)
+legend("topleft", cex=1.3, legend=levels(as.factor(popcode)), pch=20, col=1:nlevels(as.factor(popcode)))
+
+# Saving PDF of plot
+pdf(file="OASV2 PCA with quality filtered SNPs.pdf", height=5, width=8)
+
+plot(pca$eigenvect[,1],pca$eigenvect[,2], main="PCA with quality filtered SNPs #2", cex.main=2, xlab="Principal Component axis 1", cex.lab=1.3, cex.axis=1.5, ylab="Principal Component axis 2", col=as.factor(popcode), pch=20, cex=3)
+legend("topleft", cex=1.3, legend=levels(as.factor(popcode)), pch=20, col=1:nlevels(as.factor(popcode)))
+
+dev.off()
+
+################################################
+
+#Morgan: 
+
+#EcoSimR --> Looks at null model analysis of ecological Data
+#History: Diamond (1975) 
+#1. Forbidden species combinations
+#2. Checkerboard pairs 
+#Connor and Simberloff (1979) --> intro to null models (presence, absent matrices)
+#Columns are sites, rows are species 
+#Co-occurence indices: (1) checker = species never co-occur; (2) C score; (3) V ratio; (4) Combo = count of unique combinations
+#null model algorithms = 3 constraints ^ 2 dimensions --> 9 basic null models
+# equprobable X Proportional X Fixed (2 X 2)
+
+
+#Create presence-absence matrix from species list data
+# read in associated species data 
+sppDat <- read.table("AssociatedSppData_Serp.csv",header=TRUE,sep=",",stringsAsFactors = FALSE)
+head(sppDat)
+
+# reshape data using dcast function in reshape2 package
+library(reshape2)
+PA <- dcast(sppDat,formula=SpeciesName~SitePatch)
+head(PA)
+
+dim(PA)
+
+# Conduct Species Co-occurrence Analysis using EcoSimR
+#SIM9 null model algorithm- row and column sums fixed
+#CHECKER index
+
+library(EcoSimR)
+library(MASS)
+# Run null model with SIM9 algorithm & CHECKER index
+adMod1 <- cooc_null_model(PA,algo= "sim9",metric="checker",nReps=1000)
+
+# Summary and plots
+summary(adMod1)
+mean(adMod1$Sim)
+plot(adMod1,type="hist")
+plot(adMod1,type="cooc")
+plot(adMod1,type="burn_in")
+
+#C score index
+## Run null model with SIM9 algorithm and C score index
+adMod2 <- cooc_null_model(PA,algo= "sim9",metric="c_score",nReps=1000)
+
+# Summary and plots
+summary(adMod2)
+plot(adMod2,type="hist")
+plot(adMod2,type="cooc")
+plot(adMod2,type="burn_in")
+
+#Combo index
+# Run null model with SIM9 algorithm and COMBO index
+adMod3 <- cooc_null_model(PA,algo= "sim9",metric="species_combo",nReps=1000)
+
+# Summary and plots
+summary(adMod3)
+plot(adMod3,type="hist")
+plot(adMod3,type="cooc")
+
+#SIM2 null model algorithm- row sums fixed, columns equiprobable
+#CHECKER Index
+
+# Run null model with SIM2 algorithm and C score index
+adMod4 <- cooc_null_model(PA,algo= "sim2",metric="c_score",nReps=1000)
+
+# Summary and plots
+summary(adMod4)
+plot(adMod4,type="hist")
+plot(adMod4,type="cooc")
+
+#C score Index
+
+# Run null model with SIM2 algorithm and CHECKER index
+adMod5 <- cooc_null_model(PA,algo= "sim2",metric="checker",nReps=1000)
+
+# Summary and plots
+summary(adMod5)
+plot(adMod5,type="hist")
+plot(adMod5,type="cooc")
+
+#V ratio Index
+
+# Run null model with SIM2 algorithm and V ratio index
+adMod6 <- cooc_null_model(PA,algo= "sim2",metric="v_ratio",nReps=1000)
+
+# Summary and plots
+summary(adMod6)
+plot(adMod6,type="hist")
+plot(adMod6,type="cooc")
+
+#COMBO Index
+
+# Run null model with SIM2 algorithm and COMBO index
+adMod7 <- cooc_null_model(PA,algo= "sim2",metric="species_combo",nReps=1000)
+
+# Summary and plots
+summary(adMod7)
+plot(adMod7,type="hist")
+plot(adMod7,type="cooc")
+
+#Melanie:
+#install.packages("plyr")
+
+#plyr uses split, apply, combine strategy 
+library(plyr)
+
+climate <- read.csv(file="ClimateData.csv")
+climate$Month <- as.factor(climate$Month)
+climate$Year <- as.factor(climate$Year)
+str(climate)
+head(climate)
+
+#Using ‘ddply’: a simple example
+# Use 'ddply' to calculate the mean air temperature for each month
+ddply(climate, # input data frame
+      "Month", # variable to subset by
+      function(x){ # function to run on each subset
+        mean(x$AvgAirTemp)
+      }
+)
+
+# Alter the function slightly so that the output is easier to work with
+monthlyData <- ddply(climate,
+                     "Month",
+                     function(x){ 
+                       MeanAirTemp <- mean(x$AvgAirTemp)
+                       data.frame(MeanAirTemp=MeanAirTemp)
+                     }
+)
+print(monthlyData)
+
+#Using ‘ddply’ to subset data based on multiple factors and perform a calculation
+
+# Use 'ddply' to calculate the mean air temperature for each month-year combination
+monthYearData <- ddply(climate,
+                       c("Month","Year"),
+                       function(x){ 
+                         MeanAirTemp <- mean(x$AvgAirTemp)
+                         data.frame(MeanAirTemp=MeanAirTemp)
+                       }
+)
+print(monthYearData)
+
+#Using ‘ddply’ to calculate multiple summary statistics
+
+# Use 'ddply' to calculate, for each month, means and standard deviations for daily air
+# temperature and precipitation
+monthlyData <- ddply(climate,
+                     "Month",
+                     function(x){ 
+                       
+                       meanAirTemp <- mean(x$AvgAirTemp)
+                       sdAirTemp <- sd(x$AvgAirTemp)
+                       meanPrecip <- mean(x$Precip)
+                       sdPrecip <- sd(x$Precip)
+                       
+                       data.frame(meanAirTemp=meanAirTemp,sdAirTemp=sdAirTemp,
+                                  meanPrecip=meanPrecip,sdPrecip=sdPrecip)
+                     }
+)
+print(monthlyData)
+
+
+#Using ‘summarise’ within ‘ddply’
+
+# Calculate the mean air temperature for each month
+monthlyData <- ddply(climate, # input data frame 
+                     "Month", # variable to subset by
+                     summarize, # "helper function" to run
+                     MeanAirTemp = mean(AvgAirTemp)) # function to apply to each subset
+print(monthlyData)
+
+# Calculate the mean air temperature for each month-year combination
+monthYearData <- ddply(climate, 
+                       c("Month","Year"), 
+                       summarise, 
+                       MeanAirTemp = mean(AvgAirTemp))
+print(monthYearData)
+
+# Calculate, for each month, the mean and standard deviation for air temperature 
+monthlyData <- ddply(climate, 
+                     "Month", 
+                     summarise, 
+                     meanAirTemp=mean(AvgAirTemp), 
+                     sdAirTemp=sd(AvgAirTemp))
+print(monthlyData)
+
+#Using ‘transform’ and ‘mutate’ within ‘ddply’
+
+# Use 'transform' within 'ddply' to split your data into subsets, perform a calculation on
+# each subset, and add the results to a copy of your input data frame as a new column
+x <- ddply(climate, 
+           "Month", 
+           transform, 
+           MonthlyMeanTemp = mean(AvgAirTemp))
+head(x)
+
+# 'Mutate' works similarly to 'transform', but allows you to do calculations within 'ddply'
+# using columns you just created
+x <- ddply(climate, 
+           "Month", 
+           mutate, 
+           AvgMaxTemp = mean(MaxAirTemp),
+           AvgMinTemp = mean(MinAirTemp),
+           MonthlyMeanTempRange = AvgMaxTemp - AvgMinTemp)
+head(x)
+
+#Using plyr for plotting
+
+# Create boxplots of the mean daily air temperatures for each weather station
+par(mfrow = c(1,2))
+d_ply(climate, 
+      "StationName", 
+      summarise, 
+      boxplot(AvgAirTemp, 
+              xlab=unique(StationName), 
+              ylab="Mean Daily Air Temperature (degrees C)"))
+
+
+#Using other types of functions within ‘ddply’
+
+# Use a linear model to examine how precipitation changes with air temperature within 
+# each month
+precipTemp <- ddply(climate, 
+                    "Month", 
+                    function(x) {
+                      model <- lm(Precip ~ AvgAirTemp, data=x)
+                      setNames(coef(model), c("Intercept", "Slope"))
+                    }
+)
+print(precipTemp)
+
+#Creating graphs using ‘ddply’ output
+
+# For each month, calculate and graph the mean and standard deviation for air temperature 
+
+monthlyData <- ddply(climate, 
+                     "Month", 
+                     summarise, 
+                     meanAirTemp=mean(AvgAirTemp), 
+                     sdAirTemp=sd(AvgAirTemp))
+print(monthlyData)
+
+
+library(ggplot2)
+
+p <- ggplot(monthlyData, aes(x=Month,y=meanAirTemp,colour=Month))
+p <- p + geom_point(position=position_dodge(width=0.3), stat="identity", size = 3) 
+p <- p + geom_errorbar(aes(ymin=meanAirTemp-sdAirTemp, ymax=meanAirTemp+sdAirTemp),
+                       width=.1,position=position_dodge(.3))
+print(p)
+
+```

@@ -57,10 +57,14 @@ I am a second-year PhD student in Biology studying the physiological consequence
 * [April 6, 2017: More For Loops](More_For_Loops_04062017.html)
 * [April 11, 2017: Randomization Tests](Randomization_Tests.html)
 * [April 13, 2017: Markov Models](Markov_Models.html)
+* [April 18, 2017: Markov Models Cont.](MarkovII.html)
+* [April 20, 2017: The Apply Function](Apply_Functions.html)
+* [April 25, 2017: Basic Graphics in R](Basic_Graphics_R.html)
 
 #### Lab
 * [January 18, 2017: Creating a Repository](Lab_Notes_01182017.html)
 * [April 12, 2017: Spatial Analysis](CompBio_Lecture_Notes_04122017.html)
+* [April 19 - May 3, 2017: R Presentations]()
 
 ## Demos:
 * [January 24, 2017: RMarkdown Demo (Updated 01/26/2017)](Markdown_Demo.html)
@@ -70,7 +74,7 @@ I am a second-year PhD student in Biology studying the physiological consequence
 * [February 14, 2017: Data Structures in R](R_Data_Structure_02142017.html)
 
 ## Presentations
-* [R Package Presentation: Animation (Sorry the outputs may not be working!)](R_Animation_Package_Presentation.html)
+* [R Package Presentation: Animation](R_Animation_Package_Presentation.html)
 
 
 
