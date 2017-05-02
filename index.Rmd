@@ -75,6 +75,6 @@ I am a second-year PhD student in Biology studying the physiological consequence
 
 ## Presentations
 * [R Package Presentation: Animation](R_Animation_Package_Presentation.html)
-
+* [Research Presentation: Physiological consequences and evolutionary history of diapause strategies in butterflies](CompBio_Research_Presentation_EEM.pdf)
 
 
